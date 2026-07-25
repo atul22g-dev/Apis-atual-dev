@@ -162,7 +162,7 @@
     {
         "id": "21",
         "title": "Weather",
-        "src": "https://github.com/atul22g-dev/Weather-app",
+        "src": "https://github.com/atul22g-dev/Weather",
         "demo": "https://atugatran-weather.netlify.app/",
         "desc": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta facilis officiis molestiae, dolorum, perferendis iure repellendus excepturi quam voluptates quis fugiat facere vel. Maiores possimus amet obcaecati, quisquam fugit molestias!",
         "img": "https://64.media.tumblr.com/bd8497030965728f717f191885dd3941/8abd7ef29b452d9f-1c/s640x960/71a45fbcdb8c4ff25dcdb246a37ad8db493f47c0.pnj"
@@ -170,7 +170,7 @@
     {
         "id": "22",
         "title": "Weather2",
-        "src": "https://github.com/atul22g-dev/Weather-app2",
+        "src": "https://github.com/atul22g-dev/Weather2",
         "demo": "https://atugatran-weather2.netlify.app/",
         "desc": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta facilis officiis molestiae, dolorum, perferendis iure repellendus excepturi quam voluptates quis fugiat facere vel. Maiores possimus amet obcaecati, quisquam fugit molestias!",
         "img": "https://64.media.tumblr.com/5752e97b8d3aab9241306def79daa3ca/f012114009b95ee9-8d/s1280x1920/04c8d9aaae259725912ec81cdd1279d495a68a0a.pnj"
@@ -178,7 +178,7 @@
     {
         "id": "23",
         "title": "Weather3",
-        "src": "https://github.com/atul22g-dev/weather-app3",
+        "src": "https://github.com/atul22g-dev/Weather3",
         "demo": "https://atul22g-weather3.netlify.app/",
         "desc": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta facilis officiis molestiae, dolorum, perferendis iure repellendus excepturi quam voluptates quis fugiat facere vel. Maiores possimus amet obcaecati, quisquam fugit molestias!",
         "img": "https://64.media.tumblr.com/e8ccd4b4112a63084798f264f0708a16/982db177dff8d897-b6/s2048x3072/83a5f2e5a68f7718abe2841ba458786815f40246.pnj"
@@ -305,7 +305,7 @@
     },
     {
         "id": 39,
-        "title": "python-programs",
+        "title": "Python-Programs",
         "desc": "python-programs",
         "src": "https://github.com/atul22g-dev/python-programs",
         "demo": "https://github.com/atul22g-dev/python-programs",
@@ -353,9 +353,9 @@
     },
     {
         "id": 45,
-        "title": "anime-lenis-react",
-        "desc": "anime-lenis-react",
-        "src": "https://github.com/atul22g-dev/anime-lenis-react",
+        "title": "anime-lenis",
+        "desc": "anime-lenis",
+        "src": "https://github.com/atul22g-dev/anime-lenis",
         "demo": "https://anime-lenis.netlify.app",
         "img": "https://64.media.tumblr.com/a867a8edc151c3bebf05d8343585bda5/571d0159cd0cdb54-73/s640x960/c8135adf1b3a5af55104c27b00915459fecc3a62.pnj"
     },
