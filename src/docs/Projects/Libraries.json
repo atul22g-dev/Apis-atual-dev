@@ -70,11 +70,11 @@
         "img": "https://64.media.tumblr.com/eed16bd4a028b5dfd5084544556109a5/b6de763b67a89da2-45/s640x960/f747a0de775ee8ffd5d10aee8044eec5b6097d43.pnj"
     },
     {
-        "id": 13,
-        "title": "latentflip",
-        "desc": "Loupe is a little visualisation to help you understand how JavaScript's call stack/event loop/callback queue interact with each other.",
-        "demo": "http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!",
-        "img": "https://64.media.tumblr.com/053c28020695b7c7c0d4ca2f25ba533b/8aa322df5f6a7c4f-17/s640x960/8f12f789ab7340d8b032c0a1fdef41be44167783.pnj"
+        "id": 20,
+        "title": "datatables",
+        "desc": "Add advanced interaction controls to your HTML tables the free & easy way",
+        "demo": "https://datatables.net/",
+        "img": "https://64.media.tumblr.com/d18fe9d0eb9e1eba7fd132596662fa1c/f0a1cccb9e70fe1e-76/s1280x1920/57f9cfd30d812d3ad95e6f50fd00dd27e5937784.jpg"
     },
     {
         "id": 14,
@@ -110,12 +110,5 @@
         "desc": "📦 Finding winget packages made easy",
         "demo": "https://winget.run/",
         "img": "https://64.media.tumblr.com/f37b8ed4c125c464dba5c0887d173500/0991e9eb2dfe7c35-b7/s640x960/c11677d38f01cb57c33b796156ce78de5fe2c093.pnj"
-    },
-    {
-        "id": 20,
-        "title": "datatables",
-        "desc": "Add advanced interaction controls to your HTML tables the free & easy way",
-        "demo": "https://datatables.net/",
-        "img": "https://64.media.tumblr.com/d18fe9d0eb9e1eba7fd132596662fa1c/f0a1cccb9e70fe1e-76/s1280x1920/57f9cfd30d812d3ad95e6f50fd00dd27e5937784.jpg"
     }
 ]

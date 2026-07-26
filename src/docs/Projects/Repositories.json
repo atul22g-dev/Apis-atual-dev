@@ -230,5 +230,13 @@
         "demo": "https://snap-site-nu.vercel.app/",
         "desc": "SnapSite",
         "img": "https://64.media.tumblr.com/2e7a054da622ae04a7d92d1ddc4e785d/8fe8323369aeda13-61/s2048x3072/5dba81ee2fd46710affa72c778d7c5be66cc7025.pnj"
+    },
+    {
+        "id": 31,
+        "title": "loupe",
+        "desc": "Loupe is a little visualisation to help you understand how JavaScript's call stack/event loop/callback queue interact with each other.",
+        "src": "https://github.com/Repocitories/loupe",
+        "demo": "https://repocitories.github.io/loupe",
+        "img": "https://64.media.tumblr.com/053c28020695b7c7c0d4ca2f25ba533b/8aa322df5f6a7c4f-17/s640x960/8f12f789ab7340d8b032c0a1fdef41be44167783.pnj"
     }
 ]
