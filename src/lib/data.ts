@@ -1,4 +1,4 @@
-import indexData from '@/docs/index.json';
+// import indexData from '@/docs/index.json';
 import frontendData from '@/docs/Projects/Frontend.json';
 import landingPageData from '@/docs/Projects/LandingPage.json';
 import librariesData from '@/docs/Projects/Libraries.json';
@@ -27,7 +27,7 @@ export interface IndexEntry {
 }
 
 export interface Project {
-  id: string | number;
+  id: number;
   title: string;
   src?: string;
   demo?: string;
@@ -36,7 +36,7 @@ export interface Project {
 }
 
 export interface Movie {
-  Key: string;
+  Key: number;
   Name: string;
   Poster: string;
   Title: string;
@@ -56,15 +56,15 @@ export interface Movie {
   Screenshots3?: string;
   Screenshots4?: string;
   downloads: Array<{
-    Key?: string;
-    key?: string;
+    Key?: number;
+    key?: number;
     Download_title: string;
     Download: string;
   }>;
 }
 
 export interface Product {
-  id: string;
+  id: number;
   name: string;
   company?: string;
   price: number;
@@ -78,7 +78,7 @@ export interface Product {
   stars: number;
   image: string;
   images?: Array<{
-    id: string;
+    id: number;
     width: number;
     height: number;
     url: string;
@@ -151,7 +151,7 @@ export interface CategoryInfo {
 }
 
 // Exported data
-export const indexEntries = indexData as IndexEntry[];
+// export const indexEntries = indexData as IndexEntry[];
 export const frontendProjects = frontendData as Project[];
 export const landingPageProjects = landingPageData as Project[];
 export const libraries = librariesData as Project[];

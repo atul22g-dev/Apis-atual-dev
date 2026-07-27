@@ -61,7 +61,7 @@ function HomeContent() {
           <div className="flex items-center justify-center gap-4 animate-in-delay-3">
             <Link
               href="#categories"
-              className="px-6 py-3 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-medium transition-all hover:shadow-lg hover:shadow-primary-500/25 active:scale-95"
+              className="px-6 py-3 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-medium transition hover:shadow-lg hover:shadow-primary-500/25 active:scale-95"
             >
               Explore Categories
             </Link>
@@ -69,7 +69,7 @@ function HomeContent() {
               href="https://github.com/atul22g-dev/Apis-atual-dev"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 rounded-xl glass glass-hover text-white/80 font-medium flex items-center gap-2 transition-all active:scale-95"
+              className="px-6 py-3 rounded-xl glass glass-hover text-white/80 font-medium flex items-center gap-2 transition active:scale-95"
             >
               <Github className="w-4 h-4" />
               View on GitHub
@@ -88,10 +88,10 @@ function HomeContent() {
               { label: 'Total Items', value: totalItems, icon: Database, color: 'text-emerald-400' },
               { label: 'Frontend', value: categories.slice(0, 3).reduce((s, c) => s + c.count, 0), icon: FolderCog, color: 'text-amber-400' },
               { label: 'Media', value: (categories.find(c => c.id === 'movies')?.count ?? 0) + (categories.find(c => c.id === 'wallpapers')?.count ?? 0) + (categories.find(c => c.id === 'songs')?.count ?? 0), icon: Film, color: 'text-rose-400' },
-            ].map((stat, i) => {
+            ].map((stat) => {
               const Icon = stat.icon;
               return (
-                <div key={i} className="text-center animate-in-delay-4">
+                <div key={stat.label} className="text-center animate-in-delay-4">
                   <Icon className={`w-6 h-6 ${stat.color} mx-auto mb-2`} />
                   <div className="text-2xl font-bold text-white">{stat.value}</div>
                   <div className="text-sm text-white/40">{stat.label}</div>

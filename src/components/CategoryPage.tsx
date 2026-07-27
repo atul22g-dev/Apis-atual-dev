@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, Fragment } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Search, ArrowUpRight, ExternalLink, Github, Star, Clock, ChevronLeft } from 'lucide-react';
 
 interface Item {
@@ -75,7 +76,7 @@ export default function CategoryPage({
               placeholder={`Search ${title.toLowerCase()}...`}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-white/20 focus:bg-white/[0.07] transition-all"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-white/20 focus:bg-white/[0.07] transition"
             />
           </div>
         </div>
@@ -84,6 +85,7 @@ export default function CategoryPage({
           <span className="text-sm text-white/40">{filteredItems.length} items</span>
           {searchQuery && (
             <button
+              type="button"
               onClick={() => setSearchQuery('')}
               className="text-xs text-primary-400 hover:text-primary-300 transition-colors"
             >
@@ -100,6 +102,7 @@ export default function CategoryPage({
             <div className="text-4xl mb-4">🔍</div>
             <p className="text-white/40 text-lg">No results found</p>
             <button
+              type="button"
               onClick={() => setSearchQuery('')}
               className="mt-4 text-sm text-primary-400 hover:text-primary-300 transition-colors"
             >
@@ -110,9 +113,9 @@ export default function CategoryPage({
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {filteredItems.map((item, index) =>
               renderCard ? (
-                renderCard(item, index) 
+                <Fragment key={`card-${item.id}`}>{renderCard(item, index)}</Fragment>
               ) : (
-                <DefaultCard key={item.id || index} item={item} index={index} />
+                <DefaultCard key={`card-${item.id}`} item={item} index={index} />
               )
             )}
           </div>
@@ -123,21 +126,22 @@ export default function CategoryPage({
 }
 
 function DefaultCard({ item, index }: { item: Item; index: number}) {
-  console.log(item);
   
   return (
-    <span
-      className="group relative glass rounded-xl p-5 hover:bg-white/[0.06] transition-all duration-300 hover:scale-[1.02]"
+    <div
+      className="group relative glass rounded-xl p-5 hover:bg-white/[0.06] transition duration-300 hover:scale-[1.02]"
       style={{ animationDelay: `${(index % 6) * 100}ms` }}
     >
       {/* Image */}
       {item.img && (
         <div className="relative w-full h-40 rounded-lg overflow-hidden mb-4 bg-white/5">
-          <img
+          <Image
             src={item.img}
             alt={item.title || item.name || ''}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            loading="lazy"
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            unoptimized
           />
         </div>
       )}
@@ -188,7 +192,7 @@ function DefaultCard({ item, index }: { item: Item; index: number}) {
           </Link>
         )}
       </div>
-    </span>
+    </div>
   );
 }
 

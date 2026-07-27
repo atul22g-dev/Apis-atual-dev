@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Search, ShoppingBag, Star, ChevronLeft } from 'lucide-react';
 import { products } from '@/lib/data';
 
@@ -19,13 +20,15 @@ export default function ProductsPage() {
     );
   }, [search]);
 
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('en-IN', {
-      style: 'currency',
-      currency: 'INR',
-      maximumFractionDigits: 0,
-    }).format(price / 100);
-  };
+  const formatter = useMemo(() => new Intl.NumberFormat('en-IN', {
+    style: 'currency',
+    currency: 'INR',
+    maximumFractionDigits: 0,
+  }), []);
+
+  const formatPrice = useCallback((price: number) => {
+    return formatter.format(price / 100);
+  }, [formatter]);
 
   return (
     <div className="min-h-screen pt-24 pb-16">
@@ -45,7 +48,8 @@ export default function ProductsPage() {
           <div className="relative w-full sm:w-72">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
             <input type="text" placeholder="Search products..." value={search} onChange={e => setSearch(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-white/20 transition-all" />
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-white/20 transition" 
+              aria-label="Search products" />
           </div>
         </div>
         <div className="text-sm text-white/40 mt-4">{filtered.length} products</div>
@@ -58,11 +62,11 @@ export default function ProductsPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {filtered.map((product, i) => (
               <div key={product.id}
-                className="group relative glass rounded-xl p-5 hover:bg-white/[0.06] transition-all duration-300 hover:scale-[1.02]"
+                className="group relative glass rounded-xl p-5 hover:bg-white/[0.06] transition duration-300 hover:scale-[1.02]"
                 style={{ animationDelay: `${(i % 6) * 100}ms` }}>
 
                 <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4 bg-white/5">
-                  <img src={product.image} alt={product.name} className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                  <Image src={product.image} alt={product.name} fill className="object-contain p-4 group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" unoptimized />
                   {product.featured && (
                     <span className="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-xs">Featured</span>
                   )}

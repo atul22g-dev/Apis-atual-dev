@@ -1,29 +1,26 @@
 [
     {
-        "id": "1",
+        "id": 1,
         "title": "AtualDevApp",
         "type": "App",
         "src": "https://github.com/atul22g-dev/AtualDevApp",
         "demo": "https://github.com/atul22g-dev/AtualDevApp/releases",
-        "desc": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta facilis officiis molestiae, dolorum, perferendis iure repellendus excepturi quam voluptates quis fugiat facere vel. Maiores possimus amet obcaecati, quisquam fugit molestias!",
         "img": "https://64.media.tumblr.com/39bcea43c9b4cde27142331fa04fdfed/ef6cf4f6290f3b38-8d/s1280x1920/d0882d2fae3ea7e6ae2798ffa3b00d2425b71814.jpg"
     },
     {
-        "id": "2",
+        "id": 2,
         "title": "CalculatorApp",
         "type": "App",
         "src": "https://github.com/atul22g-dev/calcutatorApp",
         "demo": "https://github.com/atul22g-dev/calcutatorApp/releases",
-        "desc": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta facilis officiis molestiae, dolorum, perferendis iure repellendus excepturi quam voluptates quis fugiat facere vel. Maiores possimus amet obcaecati, quisquam fugit molestias!",
         "img": "https://64.media.tumblr.com/4b307c3cd023b359f10d884cbcbd5409/085d31bf1365e0eb-1b/s1280x1920/7d273879dcdb9efb40de1908d896119a139c9127.pnj"
     },
     {
-        "id": "2",
+        "id": 3,
         "title": "CalculatorApp",
         "type": "App",
         "src": "https://github.com/atul22g-dev/wallpaperApp",
         "demo": "https://github.com/atul22g-dev/wallpaperApp/releases",
-        "desc": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta facilis officiis molestiae, dolorum, perferendis iure repellendus excepturi quam voluptates quis fugiat facere vel. Maiores possimus amet obcaecati, quisquam fugit molestias!",
         "img": "https://64.media.tumblr.com/69b844e6f0090d905ad1cb7a2e9d0788/f8b3ab1965098d63-26/s1280x1920/35bcb0888258a8cb470ef72e2868ced138ac0110.pnj"
     }
 ]
