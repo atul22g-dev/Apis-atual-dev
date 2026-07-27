@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, useCallback, useMemo, type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 
 interface AuthContextType {
@@ -30,7 +30,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const checkAuth = useCallback(async () => {
     try {
       const res = await fetch('/api/check-auth');
-      setIsAuthenticated(res.ok);
+      if (!res.ok) {
+        setIsAuthenticated(false);
+        return;
+      }
+      const data = await res.json();
+      setIsAuthenticated(data.authenticated === true);
     } catch {
       setIsAuthenticated(false);
     } finally {
@@ -46,13 +51,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         body: JSON.stringify({ password }),
       });
 
-      if (res.ok) {
-        setIsAuthenticated(true);
-        return { success: true };
+      // Check response status before consuming body
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        return { success: false, message: data.message || 'Invalid password' };
       }
 
-      const data = await res.json().catch(() => ({}));
-      return { success: false, message: data.message || 'Invalid password' };
+      setIsAuthenticated(true);
+      return { success: true };
     } catch {
       return { success: false, message: 'Login failed. Please try again.' };
     }
@@ -61,11 +67,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const logout = useCallback(async () => {
     await fetch('/api/logout', { method: 'POST' });
     setIsAuthenticated(false);
-    router.push('/login');
+    router.replace('/login');
   }, [router]);
 
+  const contextValue = useMemo(() => ({ isAuthenticated, isLoading, login, logout }), [isAuthenticated, isLoading, login, logout]);
+
   return (
-    <AuthContext.Provider value={{ isAuthenticated, isLoading, login, logout }}>
+    <AuthContext.Provider value={contextValue}>
       {children}
     </AuthContext.Provider>
   );

@@ -2,18 +2,10 @@
 
 import { useState, useMemo, useRef, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import {
-  Search, ChevronLeft, Music, Play, Pause, SkipBack, SkipForward,
-  ExternalLink, Volume2, VolumeX, ListMusic
-} from 'lucide-react';
+import { Search, ChevronLeft, Music } from 'lucide-react';
 import { songs } from '@/lib/data';
-
-function formatTime(seconds: number): string {
-  if (isNaN(seconds)) return '0:00';
-  const m = Math.floor(seconds / 60);
-  const s = Math.floor(seconds % 60);
-  return `${m}:${s.toString().padStart(2, '0')}`;
-}
+import SongCard from './SongCard';
+import NowPlayingBar from './NowPlayingBar';
 
 export default function SongsPage() {
   const [search, setSearch] = useState('');
@@ -49,22 +41,29 @@ export default function SongsPage() {
     setIsPlaying(true);
   }, [filtered.length]);
 
-  // Handle audio events
+  // Handle volume changes separately — don't reset the audio source
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.volume = isMuted ? 0 : volume;
+  }, [volume, isMuted]);
+
+  // Handle audio events and play/pause sync
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio || currentIndex === null || !currentSong) return;
 
     audio.src = currentSong.src;
-    audio.volume = isMuted ? 0 : volume;
 
     if (isPlaying) {
       audio.play().catch(() => setIsPlaying(false));
+    } else {
+      audio.pause();
     }
 
     const onTimeUpdate = () => setCurrentTime(audio.currentTime);
     const onDurationChange = () => setDuration(audio.duration || 0);
     const onEnded = () => {
-      // Auto-play next
       if (currentIndex < filtered.length - 1) {
         playSong(currentIndex + 1);
       } else {
@@ -87,18 +86,9 @@ export default function SongsPage() {
       audio.removeEventListener('ended', onEnded);
       audio.removeEventListener('error', onError);
     };
-  }, [currentIndex, currentSong, isPlaying, volume, isMuted, filtered.length, playSong]);
+  }, [currentIndex, currentSong, isPlaying, filtered.length, playSong]);
 
-  // Sync play/pause
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio || currentIndex === null) return;
-    if (isPlaying) {
-      audio.play().catch(() => setIsPlaying(false));
-    } else {
-      audio.pause();
-    }
-  }, [isPlaying, currentIndex]);
+
 
   const togglePlay = () => {
     if (currentIndex === null && filtered.length > 0) {
@@ -143,9 +133,10 @@ export default function SongsPage() {
   const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
 
   return (
-    <div className="min-h-screen pt-24 pb-32">
-      {/* Hidden audio element */}
-      <audio ref={audioRef} preload="metadata" />
+    <div className="min-h-screen pt-24 pb-32">        {/* Hidden audio element */}
+      <audio ref={audioRef as React.RefObject<HTMLAudioElement>} preload="metadata" aria-label="Audio player">
+        <track kind="captions" src="data:text/vtt,WEBVTT" label="English" />
+      </audio>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
         <Link
@@ -170,7 +161,8 @@ export default function SongsPage() {
               placeholder="Search songs..."
               value={search}
               onChange={e => setSearch(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-white/20 transition-all"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-white/20 transition"
+              aria-label="Search songs"
             />
           </div>
         </div>
@@ -183,194 +175,41 @@ export default function SongsPage() {
           <div className="text-center py-20 text-white/40">No songs found</div>
         ) : (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filtered.map((song, i) => {
-              const isCurrentTrack = currentIndex === i;
-              return (
-                <button
-                  key={song.id}
-                  onClick={() => {
-                    if (isCurrentTrack) {
-                      togglePlay();
-                    } else {
-                      playSong(i);
-                    }
-                  }}
-                  className={`group relative glass rounded-xl p-5 text-left transition-all duration-300 hover:scale-[1.02] ${
-                    isCurrentTrack
-                      ? 'bg-rose-500/10 border-rose-500/30 ring-1 ring-rose-500/30'
-                      : 'hover:bg-white/[0.06]'
-                  }`}
-                  style={{ animationDelay: `${(i % 6) * 100}ms` }}
-                >
-                  <div className="flex items-center gap-4">
-                    {/* Album art placeholder / Play button */}
-                    <div className={`relative w-14 h-14 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 ${
-                      isCurrentTrack && isPlaying
-                        ? 'bg-rose-500/20'
-                        : 'bg-white/5 group-hover:bg-rose-500/10'
-                    }`}>
-                      {isCurrentTrack && isPlaying ? (
-                        <div className="flex items-end gap-0.5 h-6">
-                          <span className="w-1 bg-rose-400 rounded-full animate-equalizer-1" />
-                          <span className="w-1 bg-rose-400 rounded-full animate-equalizer-2" />
-                          <span className="w-1 bg-rose-400 rounded-full animate-equalizer-3" />
-                          <span className="w-1 bg-rose-400 rounded-full animate-equalizer-4" />
-                        </div>
-                      ) : (
-                        <Play className={`w-6 h-6 transition-colors ${
-                          isCurrentTrack ? 'text-rose-400 fill-rose-400' : 'text-white/40 group-hover:text-rose-400'
-                        }`} />
-                      )}
-                    </div>
-
-                    {/* Song info */}
-                    <div className="flex-1 min-w-0">
-                      <h3 className={`font-semibold truncate transition-colors ${
-                        isCurrentTrack ? 'text-rose-300' : 'text-white group-hover:text-rose-300'
-                      }`}>
-                        {song.Name}
-                      </h3>
-                      <p className="text-xs text-white/30 mt-1 truncate">
-                        {song.src.split('/').pop()?.replace(/%20/g, ' ') || 'Audio track'}
-                      </p>
-                    </div>
-
-                    {/* Source link */}
-                    <a
-                      href={song.data}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="shrink-0 p-2 rounded-lg text-white/20 hover:text-white/60 hover:bg-white/5 transition-all"
-                      title="View on GitHub"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
-                  </div>
-
-                  {/* Progress bar for currently playing */}
-                  {isCurrentTrack && (
-                    <div className="mt-3 h-1 rounded-full bg-white/5 overflow-hidden">
-                      <div
-                        className="h-full rounded-full bg-gradient-to-r from-rose-400 to-rose-500 transition-all duration-300"
-                        style={{ width: `${progress}%` }}
-                      />
-                    </div>
-                  )}
-                </button>
-              );
-            })}
+            {filtered.map((song, i) => (
+              <SongCard
+                key={song.id}
+                song={song}
+                index={i}
+                isCurrentTrack={currentIndex === i}
+                isPlaying={isPlaying}
+                progress={progress}
+                onPlay={playSong}
+                onTogglePlay={togglePlay}
+              />
+            ))}
           </div>
         )}
       </div>
 
       {/* Sticky Now Playing Bar */}
       {currentSong && (
-        <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#0a0a0f]/95 backdrop-blur-xl border-t border-white/10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-            {/* Progress bar (clickable) */}
-            <div
-              ref={progressRef}
-              onClick={handleProgressClick}
-              className="absolute top-0 left-0 right-0 h-1 bg-white/5 cursor-pointer group/progress hover:h-1.5 transition-all"
-            >
-              <div
-                className="h-full bg-gradient-to-r from-rose-400 to-rose-500 relative"
-                style={{ width: `${progress}%` }}
-              >
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-rose-400 shadow-lg shadow-rose-500/50 opacity-0 group-hover/progress:opacity-100 transition-opacity" />
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between gap-4">
-              {/* Left: Song info */}
-              <div className="flex items-center gap-3 min-w-0 flex-1">
-                <div className="w-10 h-10 rounded-lg bg-rose-500/20 flex items-center justify-center shrink-0">
-                  {isPlaying ? (
-                    <div className="flex items-end gap-[2px] h-4">
-                      <span className="w-0.5 bg-rose-400 rounded-full animate-equalizer-1" />
-                      <span className="w-0.5 bg-rose-400 rounded-full animate-equalizer-2" />
-                      <span className="w-0.5 bg-rose-400 rounded-full animate-equalizer-3" />
-                    </div>
-                  ) : (
-                    <Music className="w-5 h-5 text-rose-400" />
-                  )}
-                </div>
-                <div className="min-w-0">
-                  <p className="text-sm font-medium text-white truncate">{currentSong.Name}</p>
-                  <p className="text-xs text-white/40 truncate">
-                    {formatTime(currentTime)} / {formatTime(duration)}
-                  </p>
-                </div>
-              </div>
-
-              {/* Center: Controls */}
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={playPrev}
-                  className="p-2 rounded-lg text-white/40 hover:text-white hover:bg-white/5 transition-all"
-                  title="Previous"
-                >
-                  <SkipBack className="w-4 h-4" />
-                </button>
-
-                <button
-                  onClick={togglePlay}
-                  className="p-3 rounded-full bg-rose-500 hover:bg-rose-400 text-white transition-all hover:scale-105 active:scale-95 shadow-lg shadow-rose-500/25"
-                  title={isPlaying ? 'Pause' : 'Play'}
-                >
-                  {isPlaying ? (
-                    <Pause className="w-5 h-5 fill-current" />
-                  ) : (
-                    <Play className="w-5 h-5 fill-current ml-0.5" />
-                  )}
-                </button>
-
-                <button
-                  onClick={playNext}
-                  className="p-2 rounded-lg text-white/40 hover:text-white hover:bg-white/5 transition-all"
-                  title="Next"
-                >
-                  <SkipForward className="w-4 h-4" />
-                </button>
-              </div>
-
-              {/* Right: Volume & source */}
-              <div className="flex items-center gap-3 flex-1 justify-end">
-                <button
-                  onClick={toggleMute}
-                  className="p-2 rounded-lg text-white/40 hover:text-white hover:bg-white/5 transition-all"
-                  title={isMuted ? 'Unmute' : 'Mute'}
-                >
-                  {isMuted || volume === 0 ? (
-                    <VolumeX className="w-4 h-4" />
-                  ) : (
-                    <Volume2 className="w-4 h-4" />
-                  )}
-                </button>
-                <input
-                  type="range"
-                  min="0"
-                  max="1"
-                  step="0.01"
-                  value={isMuted ? 0 : volume}
-                  onChange={handleVolumeChange}
-                  className="w-20 accent-rose-400"
-                  title="Volume"
-                />
-                <a
-                  href={currentSong.data}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-white/40 hover:text-white/60 text-xs transition-all"
-                >
-                  <ExternalLink className="w-3 h-3" />
-                  Source
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+        <NowPlayingBar
+          currentSong={currentSong}
+          isPlaying={isPlaying}
+          currentTime={currentTime}
+          duration={duration}
+          volume={volume}
+          isMuted={isMuted}
+          progress={progress}
+          progressRef={progressRef as React.RefObject<HTMLDivElement>}
+          audioRef={audioRef as React.RefObject<HTMLAudioElement>}
+          onProgressClick={handleProgressClick}
+          onTogglePlay={togglePlay}
+          onNext={playNext}
+          onPrev={playPrev}
+          onToggleMute={toggleMute}
+          onVolumeChange={handleVolumeChange}
+        />
       )}
 
       {/* CSS for equalizer animation */}

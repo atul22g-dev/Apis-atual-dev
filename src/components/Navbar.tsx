@@ -19,7 +19,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition duration-300 ${
         isScrolled
           ? 'bg-[#070708]/80 backdrop-blur-xl border-b border-white/10'
           : 'bg-transparent'
@@ -42,31 +42,29 @@ export default function Navbar() {
             {isAuthenticated ? (
               <>
                 <Link
-                  href="/"
-                  className="px-3 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-all"
+                  href="/"                   className="px-3 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition"
                 >
                   Home
                 </Link>
                 <Link
-                  href="/api/index"
-                  className="px-3 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-all flex items-center gap-1"
+                  href="/api/index"                   className="px-3 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition flex items-center gap-1"
                 >
                   <Terminal className="w-3.5 h-3.5" />
                   API Index
                 </Link>
                 <div className="relative group">
-                  <button className="px-3 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-all flex items-center gap-1">
+                  <button type="button" className="px-3 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition flex items-center gap-1">
                     Categories
                     <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
-                  <div className="absolute top-full left-0 mt-1 w-56 rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 bg-[#070708]">
+                  <div className="absolute top-full left-0 mt-1 w-56 rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 bg-[#070708]">
                     {categories.map((cat) => (
                       <Link
                         key={cat.id}
                         href={`/${cat.slug}`}
-                        className="flex items-center gap-2 px-3 py-2 text-sm text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all"
+                        className="flex items-center gap-2 px-3 py-2 text-sm text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition"
                       >
                         <span
                           className="w-2 h-2 rounded-full"
@@ -79,8 +77,9 @@ export default function Navbar() {
                   </div>
                 </div>
                 <button
+                  type="button"
                   onClick={logout}
-                  className="px-3 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-all flex items-center gap-1.5"
+                  className="px-3 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition flex items-center gap-1.5"
                 >
                   <LogOut className="w-3.5 h-3.5" />
                   Logout
@@ -90,7 +89,7 @@ export default function Navbar() {
               !isLoading && (
                 <Link
                   href="/login"
-                  className="px-4 py-2 text-sm rounded-lg bg-primary-500/10 border border-primary-500/20 text-primary-300 hover:bg-primary-500/20 transition-all flex items-center gap-1.5"
+                  className="px-4 py-2 text-sm rounded-lg bg-primary-500/10 border border-primary-500/20 text-primary-300 hover:bg-primary-500/20 transition flex items-center gap-1.5"
                 >
                   <Lock className="w-3.5 h-3.5" />
                   Sign In
@@ -101,7 +100,7 @@ export default function Navbar() {
               href="https://atual-dev.netlify.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-all flex items-center gap-1"
+              className="px-3 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition flex items-center gap-1"
             >
               <Code className="w-4 h-4" />
               Main
@@ -110,8 +109,10 @@ export default function Navbar() {
 
           {/* Mobile menu button */}
           <button
+            type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-all"
+            className="md:hidden p-2 text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition"
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
             {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -120,25 +121,23 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden transition-all duration-300 ${
-          isMobileMenuOpen ? 'max-h-[80vh] block' : 'max-h-0 hidden'
+        className={`md:hidden transition duration-300 ${
+          isMobileMenuOpen ? 'max-h-[80vh] block visible' : 'max-h-0 hidden invisible'
         }`}
       >
         <div className="glass border-t border-white/10 p-4 space-y-1 max-h-[80vh] overflow-y-auto">
           {isAuthenticated ? (
-            <>
-              <Link
-                href="/"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-3 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-all"
-              >
+            <>                <Link
+                  href="/"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block px-3 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition"
+                >
                 Home
-              </Link>
-              <Link
-                href="/api/index"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center gap-2 px-3 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-all"
-              >
+              </Link>                <Link
+                  href="/api/index"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center gap-2 px-3 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition"
+                >
                 <Terminal className="w-4 h-4" />
                 API Index
               </Link>
@@ -150,7 +149,7 @@ export default function Navbar() {
                   key={cat.id}
                   href={`/${cat.slug}`}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center gap-2 px-3 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-all"
+                  className="flex items-center gap-2 px-3 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition"
                 >
                   <span
                     className="w-2 h-2 rounded-full"
@@ -161,19 +160,19 @@ export default function Navbar() {
                 </Link>
               ))}
               <button
+                type="button"
                 onClick={() => { logout(); setIsMobileMenuOpen(false); }}
-                className="flex items-center gap-2 w-full px-3 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-all"
+                className="flex items-center gap-2 w-full px-3 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition"
               >
                 <LogOut className="w-4 h-4" />
                 Logout
               </button>
             </>
-          ) : (
-            <Link
-              href="/login"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center gap-2 px-3 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-all"
-            >
+          ) : (                <Link
+                  href="/login"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center gap-2 px-3 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition"
+                >
               <LogIn className="w-4 h-4" />
               Sign In
             </Link>
@@ -181,10 +180,8 @@ export default function Navbar() {
           <a
             href="https://github.com/atul22g-dev"
             target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-3 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-all"
+            rel="noopener noreferrer"                   className="flex items-center gap-2 px-3 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition"
           >
-            {/* <Github className="w-4 h-4" /> */}
             GitHub
             <ArrowUpRight className="w-3 h-3 ml-auto" />
           </a>

@@ -1,19 +1,17 @@
 'use client';
 
 import { useEffect, type ReactNode } from 'react';
-import { useRouter } from 'next/navigation';
 import { useAuth } from '@/lib/AuthContext';
 
 export default function AuthGuard({ children }: { children: ReactNode }) {
   const { isAuthenticated, isLoading } = useAuth();
-  const router = useRouter();
 
   useEffect(() => {
     // Only redirect AFTER loading is complete and user is not authenticated
     if (!isLoading && !isAuthenticated) {
-      router.replace('/login');
+      window.location.href = '/login';
     }
-  }, [isAuthenticated, isLoading, router]);
+  }, [isAuthenticated, isLoading]);
 
   if (isLoading) {
     return (

@@ -26,9 +26,9 @@ const dataMap: Record<string, any[]> = {
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { category: string } }
+  { params }: { params: Promise<{ category: string }> }
 ) {
-  const { category } = params;
+  const { category } = await params;
 
   // Check auth for protected routes
   const pathname = `/api/${category}`;

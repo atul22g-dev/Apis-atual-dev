@@ -46,8 +46,9 @@ const customPages: Record<string, React.ComponentType> = {
   songs: SongsPageComponent,
 };
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const cat = categories.find(c => c.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const cat = categories.find(c => c.slug === slug);
   if (!cat) return { title: 'Not Found' };
   return {
     title: `${cat.name} | Atual APIs`,
@@ -62,7 +63,6 @@ function CategoryContent({ slug }: { slug: string }) {
 
   // Look up category info
   const cat = categories.find(c => c.slug === slug);
-  console.log(cat);
 
   if (!cat) notFound();
 
@@ -85,10 +85,11 @@ function CategoryContent({ slug }: { slug: string }) {
   );
 }
 
-export default function CategoryPageRoute({ params }: { params: { slug: string } }) {
+export default async function CategoryPageRoute({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   return (
     <AuthGuard>
-      <CategoryContent slug={params.slug} />
+      <CategoryContent slug={slug} />
     </AuthGuard>
   );
 }
