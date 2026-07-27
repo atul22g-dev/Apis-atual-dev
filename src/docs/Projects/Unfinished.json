@@ -98,8 +98,8 @@
     },
     {
         "id": 15,
-        "name": "Real-Time-Tracker",
-        "demo": "https://github.com/atul22g-dev/Real-Time-Tracker"
+        "name": "database-health-check",
+        "demo": "https://github.com/atul22g-dev/database-health-check"
     },
     {
         "id": 16,
@@ -115,15 +115,5 @@
         "id": 18,
         "name": "Rest-api2",
         "demo": "https://github.com/atul22g-dev/Rest-api2"
-    },
-    {
-        "id": 19,
-        "name": "Three.js-tuts",
-        "demo": "https://github.com/atul22g-dev/Three.js-tuts"
-    },
-    {
-        "id": 20,
-        "name": "database-health-check",
-        "demo": "https://github.com/atul22g-dev/database-health-check"
     }
 ]

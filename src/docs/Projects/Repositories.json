@@ -216,6 +216,14 @@
         "img": "https://64.media.tumblr.com/293c50eab9b6f3d88032a969c2e6255f/08061142e0621ec0-44/s1280x1920/78814da81aa055f23a9eff618d3bd485f8704556.pnj"
     },
     {
+        "id": 28,
+        "title": "LearnThree.js",
+        "desc": "Loupe is a little visualisation to help you understand how JavaScript's call stack/event loop/callback queue interact with each other.",
+        "src": "https://github.com/Repocitories/LearnThree.js",
+        "demo": "https://repocitories.github.io/LearnThree.js",
+        "img": "https://64.media.tumblr.com/6b0bb6e7b7b8d62fe8a6fec45463e9cc/4eb95e7b72874b97-15/s1280x1920/dd5590fe2af0dd6331e06efd2d8b1361e807327f.pnj"
+    },
+    {
         "id": "29",
         "title": "reference",
         "src": "https://github.com/Repocitories/reference",
