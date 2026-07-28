@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { indexEntries } from '@/lib/data';
+import { categories } from '@/lib/data';
 import { validateAuth, unauthorizedResponse } from '@/lib/auth';
 
 export async function GET(request: NextRequest) {
@@ -9,7 +9,7 @@ export async function GET(request: NextRequest) {
   }
 
   return NextResponse.json({
-    data: indexEntries,
+    data: categories,
     _links: {
       self: '/api/categories',
       auth: '/api/auth',

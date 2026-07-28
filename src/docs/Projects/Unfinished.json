@@ -4,7 +4,6 @@
         "title": "Portfolio6",
         "src": "https://github.com/atul22g-dev/Portfolio6",
         "demo": "https://atul22g-portfolio6.netlify.app",
-        "desc": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta facilis officiis molestiae, dolorum, perferendis iure repellendus excepturi quam voluptates quis fugiat facere vel. Maiores possimus amet obcaecati, quisquam fugit molestias!",
         "img": "https://64.media.tumblr.com/e92628e4e654867da8daf2941f9cd6cb/9bad747be35b8a71-de/s640x960/9a63acd11bb3013decb8fb43a8354def1bd58771.pnj"
     },
     {
@@ -12,7 +11,6 @@
         "title": "AI.Agent",
         "src": "https://github.com/atul22g-dev/AI.Agent",
         "demo": "https://atugatran-ai-agent.netlify.app/",
-        "desc": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta facilis officiis molestiae, dolorum, perferendis iure repellendus excepturi quam voluptates quis fugiat facere vel. Maiores possimus amet obcaecati, quisquam fugit molestias!",
         "img": "https://64.media.tumblr.com/433cc096672e3f9930eec1df0cfee435/941eeca24bb5a210-81/s1280x1920/9a23cb6fcf30a6f0451bcae950932ed953704bc2.pnj"
     },
     {
@@ -20,7 +18,6 @@
         "title": "Website-Builder",
         "src": "https://github.com/atul22g-dev/Website-Builder",
         "demo": "https://main--atugatran-website-builder.netlify.app/",
-        "desc": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta facilis officiis molestiae, dolorum, perferendis iure repellendus excepturi quam voluptates quis fugiat facere vel. Maiores possimus amet obcaecati, quisquam fugit molestias!",
         "img": "https://64.media.tumblr.com/234f44dcb227f6ed77971038874485ac/5d10f75050b73f70-37/s1280x1920/f57de307ce5e347ff7bc8d770da8b0580df0403e.pnj"
     },
     {
@@ -28,7 +25,6 @@
         "title": "DjangoDashboard",
         "src": "https://github.com/atul22g-dev/djangoDashboard",
         "demo": "https://atugatran-djangodashboard.onrender.com",
-        "desc": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta facilis officiis molestiae, dolorum, perferendis iure repellendus excepturi quam voluptates quis fugiat facere vel. Maiores possimus amet obcaecati, quisquam fugit molestias!",
         "img": "https://64.media.tumblr.com/3cc2fa950537036411c12b16037363f8/c3fb35ed49813402-15/s640x960/67d3d4fe38d26ad6fc2cd2fbcc5c36137e08aa65.pnj"
     },
     {
@@ -36,7 +32,6 @@
         "title": "Netflix-Clone",
         "src": "https://github.com/atul22g-dev/Netflix-Clone",
         "demo": "http://atualdev-netfix.netlify.app",
-        "desc": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta facilis officiis molestiae, dolorum, perferendis iure repellendus excepturi quam voluptates quis fugiat facere vel. Maiores possimus amet obcaecati, quisquam fugit molestias!",
         "img": "https://64.media.tumblr.com/37267dc5752e3e59512febca01fb569a/eef63acc2671817f-cf/s640x960/8f35417c974e8e8a216f905c6e53ff974145243b.pnj"
     },
     {
@@ -44,7 +39,6 @@
         "title": "Anime-Recommendation-System",
         "src": "https://github.com/atul22g-dev/Anime-Recommendation-System",
         "demo": "https://atual-anime-recommendation-system.streamlit.app/",
-        "desc": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta facilis officiis molestiae, dolorum, perferendis iure repellendus excepturi quam voluptates quis fugiat facere vel. Maiores possimus amet obcaecati, quisquam fugit molestias!",
         "img": "https://64.media.tumblr.com/568eb9ee779d3003e7c7bcfd4b0a0832/6ce18162a9e4ca44-0d/s1280x1920/f3a9953802fd74eb0334ef075b88b2885027958b.pnj"
     },
     {
@@ -52,13 +46,11 @@
         "title": "Anime-Recommendation-System-Model",
         "src": "https://github.com/atul22g-dev/Anime-Recommendation-System-Model",
         "demo": "https://atual-anime-recommendation-system.streamlit.app/",
-        "desc": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta facilis officiis molestiae, dolorum, perferendis iure repellendus excepturi quam voluptates quis fugiat facere vel. Maiores possimus amet obcaecati, quisquam fugit molestias!",
         "img": "https://64.media.tumblr.com/568eb9ee779d3003e7c7bcfd4b0a0832/6ce18162a9e4ca44-0d/s1280x1920/f3a9953802fd74eb0334ef075b88b2885027958b.pnj"
     },
     {
         "id": 8,
         "title": "WhatsappBot",
-        "desc": "WhatsappBot",
         "src": "https://github.com/atul22g-dev/WhatsappBot",
         "demo": "https://github.com/atul22g-dev/WhatsappBot",
         "img": "https://64.media.tumblr.com/a3468c068da4af59d139f680d73a3462/02a263f79913698a-b3/s400x600/8455df033703dbd8d65a8b886934597b7d579ab2.pnj"
