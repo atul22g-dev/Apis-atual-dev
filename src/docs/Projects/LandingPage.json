@@ -447,5 +447,12 @@
         "src": "https://github.com/atul22g-dev/Shinchan",
         "demo": "https://atul22g-shinchan.netlify.app/",
         "img": "https://64.media.tumblr.com/403f2c7c62f2ead1b89a3d1785c8954f/639bca8db78f240d-90/s1280x1920/f15ba94f17a3f2ccbce88ab0dad886abadbd7808.pnj"
+    },
+    {
+        "id": 65,
+        "title": "FindDevices",
+        "src": "https://github.com/atul22g-dev/FindDevices",
+        "demo": "https://github.com/atul22g-dev/FindDevices",
+        "img": "https://64.media.tumblr.com/6a3cd358a74c48e87af83578c3d4f64b/9a6cf13da15bb0be-30/s1280x1920/c74c0e6c5edcac917d3be3ab557bc6cb963bd2a9.pnj"
     }
 ]
