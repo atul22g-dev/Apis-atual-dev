@@ -138,19 +138,5 @@
         "desc": "Visualize Data Structures and Algorithms through animation. This is a collection of visualizations of algorithms and data structures, from simple ones like stacks and queues to complex ones like red-black trees and Dijkstra's algorithm.",
         "demo": "https://staying.fun/en",
         "img": "https://64.media.tumblr.com/639ea67c0a361ce64fd1441c5733768c/1340411d1867480c-88/s1280x1920/2522688bfdf8d491e93adf36df50e7ca7493e47f.pnj"
-    },
-    {
-        "id": 21,
-        "title": "vanced-manager-plus",
-        "desc": "A simple and easy to use Vanced Manager for YouTube Vanced, MicroG, and Vanced Music.",
-        "demo": "https://github.com/vancedto/vanced-manager-plus",
-        "img": "https://64.media.tumblr.com/ff44967858c4c86ab3efc70dcbd29d2e/9651f1ad574b5c10-38/s1280x1920/184fb34fd201b3d6b040a19c45a06bf8655edb1e.pnj"
-    },
-    {
-        "id": 22,
-        "title": "revanced-manager",
-        "desc": "A simple and easy to use ReVanced Manager for YouTube ReVanced, MicroG, and ReVanced Music.",
-        "demo": "https://github.com/vancedto/vanced-manager-plus",
-        "img": "https://64.media.tumblr.com/909efaa65f5b2ae80140c2d2dcd70556/7bc2f5f53aea63e1-45/s1280x1920/5bed09f5e1a51cb7a8dfb1e98cc605295e757f02.pnj"
     }
 ]

@@ -22,5 +22,23 @@
         "src": "https://github.com/atul22g-dev/wallpaperApp",
         "demo": "https://github.com/atul22g-dev/wallpaperApp/releases",
         "img": "https://64.media.tumblr.com/69b844e6f0090d905ad1cb7a2e9d0788/f8b3ab1965098d63-26/s1280x1920/35bcb0888258a8cb470ef72e2868ced138ac0110.pnj"
+    },
+        {
+        "id": 4,
+        "title": "vanced-manager-plus",
+        "desc": "A simple and easy to use Vanced Manager for YouTube Vanced, MicroG, and Vanced Music.",
+        "type": "App",
+        "src": "https://github.com/vancedto/vanced-manager-plus",
+        "demo": "https://github.com/vancedto/vanced-manager-plus/releases",
+        "img": "https://raw.githubusercontent.com/vancedto/vanced-manager-plus/refs/heads/main/screenshots/main_screen.jpg"
+    },
+    {
+        "id": 5,
+        "title": "revanced-manager",
+        "desc": "A simple and easy to use ReVanced Manager for YouTube ReVanced, MicroG, and ReVanced Music.",
+        "type": "App",
+        "src": "https://github.com/vancedto/vanced-manager-plus",
+        "demo": "https://github.com/vancedto/vanced-manager-plus/releases",
+        "img": "https://raw.githubusercontent.com/vancedto/vanced-manager-plus/refs/heads/main/screenshots/main_screen.jpg"
     }
 ]

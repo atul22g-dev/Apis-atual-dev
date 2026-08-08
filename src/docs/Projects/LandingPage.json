@@ -153,7 +153,6 @@
         "demo": "https://atugatran-weather2.netlify.app/",
         "img": "https://64.media.tumblr.com/5752e97b8d3aab9241306def79daa3ca/f012114009b95ee9-8d/s1280x1920/04c8d9aaae259725912ec81cdd1279d495a68a0a.pnj"
     },
-
     {
         "id": 23,
         "title": "Weather3",
@@ -270,15 +269,15 @@
         "id": 39,
         "title": "Python-Programs",
         "src": "https://github.com/atul22g-dev/python-programs",
-        "demo": "https://github.com/atul22g-dev/python-programs",
-        "img": "https://64.media.tumblr.com/1e2c15d0e3f1cde44e4c608934dc8280/c5f293659467b7ee-40/s640x960/c5ffd692bbc899909a45a3f48ee03c20af15945f.pnj"
+        "demo": "https://python-programs.netlify.app",
+        "img": "https://64.media.tumblr.com/28c39b1ca7a73b7d89667c6eaa1cb6bd/f30548922b295801-07/s1280x1920/840aea02921edc4bfa677d36ea7e4376d8995ac8.pnj"
     },
     {
         "id": 40,
         "title": "File-Smuggling",
         "src": "https://github.com/atul22g-dev/File-Smuggling",
         "demo": "https://atugatran-file-smuggling.netlify.app/",
-        "img": "https://64.media.tumblr.com/20f21fd775a64495c03801c4dd8c9b86/7a726303a5072b6b-31/s640x960/2eebdf08d2ffd77fb137143c46145dc5bf4dddaa.pnj"
+        "img": "https://64.media.tumblr.com/d143c7ff285353bcef01e437f80a568d/708e3b1b9b11ea7a-62/s1280x1920/cbff39fa7a26892456543c686840e280347560ae.pnj"
     },
     {
         "id": 41,
@@ -406,28 +405,28 @@
         "demo": "https://atul22g-apple.netlify.app",
         "img": "https://64.media.tumblr.com/2fe94de04387e0ca226f185c5b5d928e/752a1cfb2a17ba09-af/s640x960/0a1069713d1a3d72f24e5f7932be935e6908b61f.jpg"
     },
-        {
+    {
         "id": 59,
         "title": "iCoder",
         "src": "https://github.com/atul22g-dev/iCoder",
         "demo": "https://atul22g-icoder.netlify.app/",
         "img": "https://64.media.tumblr.com/917c23d8dac05c63c0705f0f54a573a5/d47860b1b552c1b2-13/s640x960/1e5974ef1cf812e8240f3f874763f9e92fbcdec2.pnj"
     },
-        {
+    {
         "id": 60,
         "title": "Portfolio2",
         "src": "https://github.com/atul22g-dev/Portfolio2",
         "demo": "https://atul22g-portfolio2.netlify.app/",
         "img": "https://64.media.tumblr.com/1bf5391e33ed3e71cf83bf23dfba4287/24d2f4ae3593f069-1f/s640x960/5b75161efa343988d4fcfaf3cbb9ee93fe907150.pnj"
     },
-        {
+    {
         "id": 61,
         "title": "Portfolio3",
         "src": "https://github.com/atul22g-dev/Portfolio3",
         "demo": "https://atul22g-portfolio3.netlify.app/",
         "img": "https://64.media.tumblr.com/ea4dcabfb715c981c6449f0c9d7f4525/c72f96fa19ca0c12-58/s640x960/e940d618fcd478793b69e667ca2255bee6f21aee.pnj"
     },
-        {
+    {
         "id": 62,
         "title": "TextUtils",
         "src": "https://github.com/atul22g-dev/TextUtils",
@@ -452,7 +451,21 @@
         "id": 65,
         "title": "FindDevices",
         "src": "https://github.com/atul22g-dev/FindDevices",
-        "demo": "https://github.com/atul22g-dev/FindDevices",
+        "demo": "https://finddevices.netlify.app",
         "img": "https://64.media.tumblr.com/6a3cd358a74c48e87af83578c3d4f64b/9a6cf13da15bb0be-30/s1280x1920/c74c0e6c5edcac917d3be3ab557bc6cb963bd2a9.pnj"
+    },
+    {
+        "id": 66,
+        "title": "html-to-pdf-generator",
+        "src": "https://github.com/atul22g-dev/html-to-pdf-generator",
+        "demo": "https://html-to-pdf-generator.netlify.app",
+        "img": "https://64.media.tumblr.com/083de23d401b95bb9289ee4cb1d0625c/e31b7785cd68c74a-c4/s1280x1920/33d5fd0f48f522f10078cc7b36c017fc46b25301.pnj"
+    },
+    {
+        "id": 67,
+        "title": "python-mini-projects",
+        "src": "https://github.com/Repocitories/python-mini-projects",
+        "demo": "https://repocitories.github.io/python-mini-projects/",
+        "img": "https://64.media.tumblr.com/dffc756d8392704ccb53eef3e444c893/dbb9a536f7f999bc-20/s2048x3072/0f68e529a0f85278abac23036bf23571ba24c28c.pnj"
     }
 ]

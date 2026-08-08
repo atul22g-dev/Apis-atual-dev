@@ -106,10 +106,10 @@
     },
     {
         "id": 16,
-        "title": "React-tuts",
-        "src": "https://github.com/Repocitories/React-tuts",
-        "demo": "https://repocitories.github.io/React-tuts/",
-        "img": "https://64.media.tumblr.com/cf03745cc70b59cbcddd2d934b3f1b28/cd3d0717baa1781b-8d/s640x960/b2fd6a51b5f78bd7a81b9044283e6e475772471f.pnj"
+        "title": "loupe",
+        "src": "https://github.com/Repocitories/loupe",
+        "demo": "https://repocitories.github.io/loupe",
+        "img": "https://64.media.tumblr.com/053c28020695b7c7c0d4ca2f25ba533b/8aa322df5f6a7c4f-17/s640x960/8f12f789ab7340d8b032c0a1fdef41be44167783.pnj"
     },
     {
         "id": 17,
@@ -141,10 +141,10 @@
     },
     {
         "id": 21,
-        "title": "python-mini-projects",
-        "src": "https://github.com/Repocitories/python-mini-projects",
-        "demo": "https://repocitories.github.io/python-mini-projects/",
-        "img": "https://64.media.tumblr.com/dffc756d8392704ccb53eef3e444c893/dbb9a536f7f999bc-20/s2048x3072/0f68e529a0f85278abac23036bf23571ba24c28c.pnj"
+        "title": "reference",
+        "src": "https://github.com/Repocitories/reference",
+        "demo": "https://quickref.me/",
+        "img": "https://64.media.tumblr.com/5b53d8cf3f5476acf16293252e624678/8c37e9d6bc53519d-5f/s1280x1920/e773997a017acbe04ff498c4259363d34f0a5774.pnj"
     },
     {
         "id": 22,
@@ -169,10 +169,10 @@
     },
     {
         "id": 25,
-        "title": "html-to-pdf-generator",
-        "src": "https://github.com/atul22g-dev/html-to-pdf-generator",
-        "demo": "https://github.com/atul22g-dev/html-to-pdf-generator",
-        "img": "https://64.media.tumblr.com/d387ccb8e6de1430c36595ee7a79b8c7/0e7548c1232e8215-04/s1280x1920/769644a20fe783fad19907e19818b7cc3a417833.pnj"
+        "title": "SnapSite",
+        "src": "https://github.com/Repocitories/SnapSite",
+        "demo": "https://snap-site-nu.vercel.app/",
+        "img": "https://64.media.tumblr.com/2e7a054da622ae04a7d92d1ddc4e785d/8fe8323369aeda13-61/s2048x3072/5dba81ee2fd46710affa72c778d7c5be66cc7025.pnj"
     },
     {
         "id": 26,
@@ -194,26 +194,5 @@
         "src": "https://github.com/Repocitories/LearnThree.js",
         "demo": "https://repocitories.github.io/LearnThree.js",
         "img": "https://64.media.tumblr.com/6b0bb6e7b7b8d62fe8a6fec45463e9cc/4eb95e7b72874b97-15/s1280x1920/dd5590fe2af0dd6331e06efd2d8b1361e807327f.pnj"
-    },
-    {
-        "id": 29,
-        "title": "reference",
-        "src": "https://github.com/Repocitories/reference",
-        "demo": "https://quickref.me/",
-        "img": "https://64.media.tumblr.com/5b53d8cf3f5476acf16293252e624678/8c37e9d6bc53519d-5f/s1280x1920/e773997a017acbe04ff498c4259363d34f0a5774.pnj"
-    },
-    {
-        "id": 30,
-        "title": "SnapSite",
-        "src": "https://github.com/Repocitories/SnapSite",
-        "demo": "https://snap-site-nu.vercel.app/",
-        "img": "https://64.media.tumblr.com/2e7a054da622ae04a7d92d1ddc4e785d/8fe8323369aeda13-61/s2048x3072/5dba81ee2fd46710affa72c778d7c5be66cc7025.pnj"
-    },
-    {
-        "id": 31,
-        "title": "loupe",
-        "src": "https://github.com/Repocitories/loupe",
-        "demo": "https://repocitories.github.io/loupe",
-        "img": "https://64.media.tumblr.com/053c28020695b7c7c0d4ca2f25ba533b/8aa322df5f6a7c4f-17/s640x960/8f12f789ab7340d8b032c0a1fdef41be44167783.pnj"
     }
 ]
