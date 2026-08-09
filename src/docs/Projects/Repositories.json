@@ -162,10 +162,10 @@
     },
     {
         "id": 24,
-        "title": "excel-data-to-database",
-        "src": "https://github.com/atul22g-dev/excel-data-to-database",
-        "demo": "https://github.com/atul22g-dev/excel-data-to-database",
-        "img": "https://64.media.tumblr.com/0a0f3ae6c0eb65f9da2e120c61a0dd28/6a3f9deb40cd9244-fd/s1280x1920/8004d350ba483b7f758c504d165f13390872dc8e.pnj"
+        "title": "LearnThree.js",
+        "src": "https://github.com/Repocitories/LearnThree.js",
+        "demo": "https://repocitories.github.io/LearnThree.js",
+        "img": "https://64.media.tumblr.com/6b0bb6e7b7b8d62fe8a6fec45463e9cc/4eb95e7b72874b97-15/s1280x1920/dd5590fe2af0dd6331e06efd2d8b1361e807327f.pnj"
     },
     {
         "id": 25,
@@ -187,12 +187,5 @@
         "src": "https://github.com/Repocitories/10-projects-10-hours",
         "demo": "https://repocitories.github.io/10-projects-10-hours/",
         "img": "https://64.media.tumblr.com/293c50eab9b6f3d88032a969c2e6255f/08061142e0621ec0-44/s1280x1920/78814da81aa055f23a9eff618d3bd485f8704556.pnj"
-    },
-    {
-        "id": 28,
-        "title": "LearnThree.js",
-        "src": "https://github.com/Repocitories/LearnThree.js",
-        "demo": "https://repocitories.github.io/LearnThree.js",
-        "img": "https://64.media.tumblr.com/6b0bb6e7b7b8d62fe8a6fec45463e9cc/4eb95e7b72874b97-15/s1280x1920/dd5590fe2af0dd6331e06efd2d8b1361e807327f.pnj"
     }
 ]

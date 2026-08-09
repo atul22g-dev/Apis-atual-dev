@@ -467,5 +467,12 @@
         "src": "https://github.com/Repocitories/python-mini-projects",
         "demo": "https://repocitories.github.io/python-mini-projects/",
         "img": "https://64.media.tumblr.com/dffc756d8392704ccb53eef3e444c893/dbb9a536f7f999bc-20/s2048x3072/0f68e529a0f85278abac23036bf23571ba24c28c.pnj"
+    },
+    {
+        "id": 68,
+        "title": "CSV-SQL-Convertor",
+        "src": "https://github.com/atul22g-dev/CSV-SQL-Convertor",
+        "demo": "https://csv-sql-convertor.netlify.app",
+        "img": "https://64.media.tumblr.com/1404d518017c26a2cf39165459c343d8/367fbdd15e196814-60/s1280x1920/3faf2ca64bd0e30bdc2e3837055b590b61a0db9c.pnj"
     }
 ]
