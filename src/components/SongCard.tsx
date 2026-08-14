@@ -14,14 +14,24 @@ interface SongCardProps {
 export default function SongCard({ song, index, isCurrent, onPlay }: SongCardProps) {
   return (
     <div
-      className={`group relative glass rounded-xl p-5 text-left transition duration-300 hover:scale-[1.02] ${
+      className={`group relative glass rounded-xl px-4 py-3 transition duration-300 hover:scale-[1.01] ${
         isCurrent
-          ? 'bg-rose-500/10 border-rose-500/30 ring-1 ring-rose-500/30'
+          ? 'bg-rose-500/10 border-rose-500/30 ring-1 ring-rose-500/30 shadow-lg shadow-rose-500/10'
           : 'hover:bg-white/[0.06]'
       }`}
       style={{ animationDelay: `${(index % 6) * 100}ms` }}
     >
       <div className="flex items-center gap-4">
+        {/* Track number */}
+        <div
+          className={`w-6 shrink-0 text-center text-sm font-medium tabular-nums transition-colors ${
+            isCurrent ? 'text-rose-400' : 'text-white/25 group-hover:text-white/50'
+          }`}
+          aria-hidden="true"
+        >
+          {isCurrent ? '♪' : index + 1}
+        </div>
+
         {/* Clickable play area: thumbnail + song info */}
         <div
           onClick={() => onPlay(index)}
@@ -37,13 +47,13 @@ export default function SongCard({ song, index, isCurrent, onPlay }: SongCardPro
           className="flex items-center gap-4 flex-1 min-w-0 cursor-pointer rounded-lg p-1 -m-1 focus:outline-none focus:ring-2 focus:ring-rose-500/50"
         >
           {/* Thumbnail / Play button */}
-          <div className="relative w-14 h-14 rounded-xl overflow-hidden shrink-0 bg-white/5 flex items-center justify-center">
+          <div className="relative w-16 h-16 rounded-xl overflow-hidden shrink-0 bg-white/5 flex items-center justify-center">
             {song.thumb ? (
               <Image
                 src={song.thumb}
                 alt=""
                 fill
-                sizes="56px"
+                sizes="64px"
                 className="object-cover"
                 unoptimized
               />
@@ -52,15 +62,10 @@ export default function SongCard({ song, index, isCurrent, onPlay }: SongCardPro
             )}
 
             {isCurrent ? (
-              <div className="absolute inset-0 bg-rose-950/60 flex items-end justify-center gap-0.5 pb-2">
-                <span className="w-1 bg-rose-400 rounded-full animate-equalizer-1" />
-                <span className="w-1 bg-rose-400 rounded-full animate-equalizer-2" />
-                <span className="w-1 bg-rose-400 rounded-full animate-equalizer-3" />
-                <span className="w-1 bg-rose-400 rounded-full animate-equalizer-4" />
-              </div>
+              <div className="absolute inset-0 bg-rose-950/50" />
             ) : (
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition flex items-center justify-center">
-                <Play className="w-6 h-6 text-white/0 group-hover:text-white transition-colors drop-shadow" />
+                <Play className="w-7 h-7 text-white/0 group-hover:text-white transition-colors drop-shadow" />
               </div>
             )}
           </div>
@@ -77,6 +82,14 @@ export default function SongCard({ song, index, isCurrent, onPlay }: SongCardPro
             </p>
           </div>
         </div>
+
+        {/* Now playing badge */}
+        {isCurrent && (
+          <span className="hidden sm:inline-flex shrink-0 items-center gap-1 px-2.5 py-1 rounded-full bg-rose-500/15 border border-rose-500/30 text-[10px] font-medium uppercase tracking-wider text-rose-300">
+            <span className="w-1.5 h-1.5 rounded-full bg-rose-400 animate-pulse" />
+            Now playing
+          </span>
+        )}
 
         {/* Source link — sibling of the play button, not nested */}
         <a

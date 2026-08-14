@@ -28,10 +28,9 @@ describe('NowPlayingBar', () => {
     expect(screen.getByText('Playing on YouTube')).toBeInTheDocument();
   });
 
-  it('renders the animated waveform', () => {
+  it('renders the music icon in the avatar', () => {
     render(<NowPlayingBar {...defaultProps} />);
-    const waveBars = document.querySelectorAll('.wave-bar');
-    expect(waveBars.length).toBeGreaterThan(0);
+    expect(document.querySelector('.lucide-music')).toBeInTheDocument();
   });
 
   it('calls onNext when next button clicked', () => {

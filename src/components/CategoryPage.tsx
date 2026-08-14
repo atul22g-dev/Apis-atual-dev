@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useMemo, Fragment } from 'react';
+import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Search, ArrowUpRight, ExternalLink, Github, Star, Clock, ChevronLeft } from 'lucide-react';
+import { Search, ExternalLink, Github, Star, ChevronLeft } from 'lucide-react';
 
 interface Item {
   id?: string | number;
@@ -24,11 +24,8 @@ interface Item {
 interface CategoryPageProps {
   title: string;
   description: string;
-  icon: string;
   color: string;
   items: Item[];
-  renderCard?: (item: Item, index: number) => React.ReactNode;
-  basePath: string;
 }
 
 export default function CategoryPage({
@@ -36,8 +33,6 @@ export default function CategoryPage({
   description,
   color,
   items,
-  renderCard,
-  basePath,
 }: CategoryPageProps) {
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -111,13 +106,9 @@ export default function CategoryPage({
           </div>
         ) : (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filteredItems.map((item, index) =>
-              renderCard ? (
-                <Fragment key={`card-${item.id}`}>{renderCard(item, index)}</Fragment>
-              ) : (
-                <DefaultCard key={`card-${item.id}`} item={item} index={index} />
-              )
-            )}
+            {filteredItems.map((item, index) => (
+              <DefaultCard key={`card-${item.id}`} item={item} index={index} />
+            ))}
           </div>
         )}
       </div>
@@ -195,5 +186,3 @@ function DefaultCard({ item, index }: { item: Item; index: number}) {
     </div>
   );
 }
-
-export { DefaultCard };

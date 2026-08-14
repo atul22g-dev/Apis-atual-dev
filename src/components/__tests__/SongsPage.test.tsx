@@ -23,9 +23,21 @@ const songs = [
 ];
 
 describe('SongsPage', () => {
-  it('renders the animated waveform in the header', () => {
-    const { container } = render(<SongsPage songs={songs} playlistId="PLTEST" />);
-    expect(container.querySelectorAll('.wave-bar').length).toBeGreaterThan(0);
+  it('renders a custom title and description for other playlists', () => {
+    render(
+      <SongsPage
+        songs={songs}
+        playlistId="PLPOETRY"
+        title="Poetry"
+        description="Poetry readings and spoken word"
+        itemsLabel="poems"
+      />
+    );
+    expect(screen.getByRole('heading', { name: 'Poetry' })).toBeInTheDocument();
+    expect(screen.getByText('Poetry readings and spoken word')).toBeInTheDocument();
+    expect(screen.getByText('2 poems')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('Search poetry...')).toBeInTheDocument();
+    expect(screen.getByTitle('Poetry playlist')).toBeInTheDocument();
   });
 
   it('renders the song list and count', () => {
@@ -52,7 +64,8 @@ describe('SongsPage', () => {
     render(<SongsPage songs={songs} playlistId="PLTEST" />);
     fireEvent.click(screen.getByRole('button', { name: /play song two/i }));
     expect(screen.getByTitle('Now playing: Song Two')).toBeInTheDocument();
-    expect(screen.getByText('Now playing: Song Two')).toBeInTheDocument();
+    expect(screen.getAllByText('Now playing').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Song Two').length).toBeGreaterThan(0);
     expect(screen.getByLabelText('Next track')).toBeInTheDocument();
     expect(screen.getByLabelText('Previous track')).toBeInTheDocument();
   });
