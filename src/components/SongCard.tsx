@@ -1,96 +1,79 @@
 'use client';
 
-import { Play, ExternalLink } from 'lucide-react';
-
-interface Song {
-  id: string | number;
-  Name: string;
-  src: string;
-  data: string;
-}
+import Image from 'next/image';
+import { Play, ExternalLink, Music } from 'lucide-react';
+import type { Song } from '@/lib/data';
 
 interface SongCardProps {
   song: Song;
   index: number;
-  isCurrentTrack: boolean;
-  isPlaying: boolean;
-  progress: number;
+  isCurrent: boolean;
   onPlay: (index: number) => void;
-  onTogglePlay: () => void;
 }
 
-export default function SongCard({
-  song,
-  index,
-  isCurrentTrack,
-  isPlaying,
-  progress,
-  onPlay,
-  onTogglePlay,
-}: SongCardProps) {
+export default function SongCard({ song, index, isCurrent, onPlay }: SongCardProps) {
   return (
     <div
       className={`group relative glass rounded-xl p-5 text-left transition duration-300 hover:scale-[1.02] ${
-        isCurrentTrack
+        isCurrent
           ? 'bg-rose-500/10 border-rose-500/30 ring-1 ring-rose-500/30'
           : 'hover:bg-white/[0.06]'
       }`}
       style={{ animationDelay: `${(index % 6) * 100}ms` }}
     >
       <div className="flex items-center gap-4">
-        {/* Clickable play area: album art + song info */}
+        {/* Clickable play area: thumbnail + song info */}
         <div
-          onClick={() => {
-            if (isCurrentTrack) {
-              onTogglePlay();
-            } else {
-              onPlay(index);
-            }
-          }}
+          onClick={() => onPlay(index)}
           onKeyDown={(e) => {
             if (e.key === 'Enter' || e.key === ' ') {
               e.preventDefault();
-              if (isCurrentTrack) {
-                onTogglePlay();
-              } else {
-                onPlay(index);
-              }
+              onPlay(index);
             }
           }}
           role="button"
           tabIndex={0}
-          aria-label={isCurrentTrack ? (isPlaying ? 'Pause' : 'Resume') : `Play ${song.Name}`}
+          aria-label={`Play ${song.Name}`}
           className="flex items-center gap-4 flex-1 min-w-0 cursor-pointer rounded-lg p-1 -m-1 focus:outline-none focus:ring-2 focus:ring-rose-500/50"
         >
-          {/* Album art placeholder / Play button */}
-          <div className={`relative w-14 h-14 rounded-xl flex items-center justify-center shrink-0 transition duration-300 ${
-            isCurrentTrack && isPlaying
-              ? 'bg-rose-500/20'
-              : 'bg-white/5 group-hover:bg-rose-500/10'
-          }`}>
-            {isCurrentTrack && isPlaying ? (
-              <div className="flex items-end gap-0.5 h-6">
+          {/* Thumbnail / Play button */}
+          <div className="relative w-14 h-14 rounded-xl overflow-hidden shrink-0 bg-white/5 flex items-center justify-center">
+            {song.thumb ? (
+              <Image
+                src={song.thumb}
+                alt=""
+                fill
+                sizes="56px"
+                className="object-cover"
+                unoptimized
+              />
+            ) : (
+              <Music className="w-6 h-6 text-white/40" />
+            )}
+
+            {isCurrent ? (
+              <div className="absolute inset-0 bg-rose-950/60 flex items-end justify-center gap-0.5 pb-2">
                 <span className="w-1 bg-rose-400 rounded-full animate-equalizer-1" />
                 <span className="w-1 bg-rose-400 rounded-full animate-equalizer-2" />
                 <span className="w-1 bg-rose-400 rounded-full animate-equalizer-3" />
                 <span className="w-1 bg-rose-400 rounded-full animate-equalizer-4" />
               </div>
             ) : (
-              <Play className={`w-6 h-6 transition-colors ${
-                isCurrentTrack ? 'text-rose-400 fill-rose-400' : 'text-white/40 group-hover:text-rose-400'
-              }`} />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition flex items-center justify-center">
+                <Play className="w-6 h-6 text-white/0 group-hover:text-white transition-colors drop-shadow" />
+              </div>
             )}
           </div>
 
           {/* Song info */}
           <div className="flex-1 min-w-0">
             <h3 className={`font-semibold truncate transition-colors ${
-              isCurrentTrack ? 'text-rose-300' : 'text-white group-hover:text-rose-300'
+              isCurrent ? 'text-rose-300' : 'text-white group-hover:text-rose-300'
             }`}>
               {song.Name}
             </h3>
             <p className="text-xs text-white/30 mt-1 truncate">
-              {song.src.split('/').pop()?.replace(/%20/g, ' ') || 'Audio track'}
+              {song.artist || 'YouTube'}
             </p>
           </div>
         </div>
@@ -101,22 +84,12 @@ export default function SongCard({
           target="_blank"
           rel="noopener noreferrer"
           className="shrink-0 p-2 rounded-lg text-white/20 hover:text-white/60 hover:bg-white/5 transition"
-          title="View on GitHub"
-          aria-label="View on GitHub"
+          title="Watch on YouTube"
+          aria-label="Watch on YouTube"
         >
           <ExternalLink className="w-4 h-4" />
         </a>
       </div>
-
-      {/* Progress bar for currently playing */}
-      {isCurrentTrack && (
-        <div className="mt-3 h-1 rounded-full bg-white/5 overflow-hidden">
-          <div
-            className="h-full rounded-full bg-gradient-to-r from-rose-400 to-rose-500 transition duration-300"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
-      )}
     </div>
   );
 }

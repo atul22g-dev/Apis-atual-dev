@@ -4,49 +4,49 @@
         "title": "Aos (Animate on Scroll)",
         "desc": "Animate on scroll library",
         "demo": "https://michalsnik.github.io/aos/",
-        "img": "https://64.media.tumblr.com/ac32d7ffe7ec3dc4f0c68b99f8f9925a/69a32bb977f69729-77/s640x960/304516c699e459761a2c17e0db5222571f012e85.pnj"
+        "img": "https://64.media.tumblr.com/ac32d7ffe7ec3dc4f0c68b99f8f9925a/69a32bb977f69729-77/s640x960/304516c699e459761a2c17e0db5222571f012e85.png"
     },
     {
         "id": 2,
         "title": "React",
         "desc": "A declarative, efficient, and flexible JavaScript library for building user interfaces.",
         "demo": "https://reactjs.org/",
-        "img": "https://64.media.tumblr.com/61adc94a2e07a4faa29a7718ac00b52e/db5faf7a4cd6a263-4f/s640x960/86bd8b7cea35d3e48291b8a7d0b86df92c539f4d.pnj"
+        "img": "https://64.media.tumblr.com/61adc94a2e07a4faa29a7718ac00b52e/db5faf7a4cd6a263-4f/s640x960/86bd8b7cea35d3e48291b8a7d0b86df92c539f4d.png"
     },
     {
         "id": 3,
         "title": "winget",
         "desc": "📦 Finding winget packages made easy",
         "demo": "https://winget.run/",
-        "img": "https://64.media.tumblr.com/f37b8ed4c125c464dba5c0887d173500/0991e9eb2dfe7c35-b7/s640x960/c11677d38f01cb57c33b796156ce78de5fe2c093.pnj"
+        "img": "https://64.media.tumblr.com/f37b8ed4c125c464dba5c0887d173500/0991e9eb2dfe7c35-b7/s640x960/c11677d38f01cb57c33b796156ce78de5fe2c093.png"
     },
     {
         "id": 4,
         "title": "kaboom",
         "desc": "💥 JavaScript game library",
         "demo": "https://kaboomjs.com/",
-        "img": "https://64.media.tumblr.com/2d84788785e3773a879f19d7bae801b1/c569d2e3ef8453a0-02/s640x960/286206bf020c327ebafedc4cfbbbfb723896cbd1.pnj"
+        "img": "https://64.media.tumblr.com/2d84788785e3773a879f19d7bae801b1/c569d2e3ef8453a0-02/s640x960/286206bf020c327ebafedc4cfbbbfb723896cbd1.png"
     },
     {
         "id": 5,
         "title": "Typed.js",
         "desc": "A JavaScript Typing Animation Library",
         "demo": "https://mattboldt.com/demos/typed-js/",
-        "img": "https://64.media.tumblr.com/1d782b39d9e0bcc76d1e157ef0ed67fe/ba44364781379187-a7/s640x960/487955d26703e147c8802b7488f40bd66b47ebf3.pnj"
+        "img": "https://64.media.tumblr.com/1d782b39d9e0bcc76d1e157ef0ed67fe/ba44364781379187-a7/s640x960/487955d26703e147c8802b7488f40bd66b47ebf3.png"
     },
     {
         "id": 6,
         "title": "Awesome-Github-Profile",
         "desc": "🌐 A website of awesome Github Profile READMEs",
         "demo": "https://zzetao.github.io/awesome-github-profile/",
-        "img": "https://64.media.tumblr.com/c5f8e683bc26116bf7e56190b1cf3bb2/2a9843be7468d5fb-b6/s640x960/9f81afd26ab6bd968290ecb98e78347f74b9ca6f.pnj"
+        "img": "https://64.media.tumblr.com/c5f8e683bc26116bf7e56190b1cf3bb2/2a9843be7468d5fb-b6/s640x960/9f81afd26ab6bd968290ecb98e78347f74b9ca6f.png"
     },
     {
         "id": 7,
         "title": "Github-Profile-Readme-Generator",
         "desc": "🚀 Generate GitHub profile README easily with the latest add-ons like visitors count, GitHub stats, etc using minimal UI.",
         "demo": "https://rahuldkjain.github.io/gh-profile-readme-generator/",
-        "img": "https://64.media.tumblr.com/7958ae05bf711ef66a4951ca325160ea/05be40b7386244b1-77/s1280x1920/d63b8432508bb9ded2614c0f29c60877caeaccf1.pnj"
+        "img": "https://64.media.tumblr.com/7958ae05bf711ef66a4951ca325160ea/05be40b7386244b1-77/s1280x1920/d63b8432508bb9ded2614c0f29c60877caeaccf1.png"
     },
     {
         "id": 8,
@@ -81,7 +81,7 @@
         "title": "Threejs",
         "desc": "JavaScript 3D Library.",
         "demo": "https://threejs.org/",
-        "img": "https://64.media.tumblr.com/eed16bd4a028b5dfd5084544556109a5/b6de763b67a89da2-45/s640x960/f747a0de775ee8ffd5d10aee8044eec5b6097d43.pnj"
+        "img": "https://64.media.tumblr.com/eed16bd4a028b5dfd5084544556109a5/b6de763b67a89da2-45/s640x960/f747a0de775ee8ffd5d10aee8044eec5b6097d43.png"
     },
     {
         "id": 13,
@@ -95,14 +95,14 @@
         "title": "wrappixel",
         "desc": "Create web apps and products using our production ready",
         "demo": "https://www.wrappixel.com/",
-        "img": "https://64.media.tumblr.com/2295a31d7e46493cc9d4c8fa2e3a0bfe/e149f0ea3422ce85-8b/s640x960/b85d7219123039571ba2d5fa27d6c957c0d26bca.pnj"
+        "img": "https://64.media.tumblr.com/2295a31d7e46493cc9d4c8fa2e3a0bfe/e149f0ea3422ce85-8b/s640x960/b85d7219123039571ba2d5fa27d6c957c0d26bca.png"
     },
     {
         "id": 15,
         "title": "kenney",
         "desc": "Free game assets, no strings attached.",
         "demo": "https://www.kenney.nl/",
-        "img": "https://64.media.tumblr.com/a72299794e59fdb5c67bb6b0dc078c44/1646980d546bf4f4-9c/s640x960/1665e492f5dffaa954bff07d3a8188f1681d5660.pnj"
+        "img": "https://64.media.tumblr.com/a72299794e59fdb5c67bb6b0dc078c44/1646980d546bf4f4-9c/s640x960/1665e492f5dffaa954bff07d3a8188f1681d5660.png"
     },
     {
         "id": 16,
@@ -116,27 +116,27 @@
         "title": "React doctor",
         "desc": "Your agent writes bad React. This catches it. Find issues across state & effects, performance, architecture, security, and accessibility.",
         "demo": "https://www.react.doctor/",
-        "img": "https://64.media.tumblr.com/d79117af660e31e7f0c848c15e37ea22/f180ca30bd39551d-5a/s1280x1920/e96959eb7e98dd8a5b7ccbf8532b473b7f84f1de.pnj"
+        "img": "https://64.media.tumblr.com/d79117af660e31e7f0c848c15e37ea22/f180ca30bd39551d-5a/s1280x1920/e96959eb7e98dd8a5b7ccbf8532b473b7f84f1de.png"
     },
     {
         "id": 18,
         "title": "Getdesign",
         "desc": "Give your coding agent a reusable design reference: colors, type, spacing, components, and the reasoning behind them. So every new page follows a specific visual language, not the same generic AI layout.",
         "demo": "https://getdesign.md/",
-        "img": "https://64.media.tumblr.com/1dcefbbe4c288caf255e79017ada14a2/8547369b7d25e2d9-5c/s1280x1920/b80dd0c45cd969482a56a6ae0cd5d39fb1e0ccd8.pnj"
+        "img": "https://64.media.tumblr.com/1dcefbbe4c288caf255e79017ada14a2/8547369b7d25e2d9-5c/s1280x1920/b80dd0c45cd969482a56a6ae0cd5d39fb1e0ccd8.png"
     },
     {
         "id": 19,
         "title": "Lear Git Branching",
         "desc": "Interested in learning Git? Well you've come to the right place! 'Learn Git Branching' is the most visual and interactive way to learn Git on the web; you'll be challenged with exciting levels, given step-by-step demonstrations of powerful features, and maybe even have a bit of fun along the way.",
         "demo": "https://learngitbranching.js.org/",
-        "img": "https://64.media.tumblr.com/0142f71191d6749949e8888e0867f5e2/8fad852120ced278-91/s1280x1920/c3a51dc6c576e81c8e51af48b3cf46c345cd08d1.pnj"
+        "img": "https://64.media.tumblr.com/0142f71191d6749949e8888e0867f5e2/8fad852120ced278-91/s1280x1920/c3a51dc6c576e81c8e51af48b3cf46c345cd08d1.png"
     },
     {
         "id": 20,
         "title": "Staying Fun",
         "desc": "Visualize Data Structures and Algorithms through animation. This is a collection of visualizations of algorithms and data structures, from simple ones like stacks and queues to complex ones like red-black trees and Dijkstra's algorithm.",
         "demo": "https://staying.fun/en",
-        "img": "https://64.media.tumblr.com/639ea67c0a361ce64fd1441c5733768c/1340411d1867480c-88/s1280x1920/2522688bfdf8d491e93adf36df50e7ca7493e47f.pnj"
+        "img": "https://64.media.tumblr.com/639ea67c0a361ce64fd1441c5733768c/1340411d1867480c-88/s1280x1920/2522688bfdf8d491e93adf36df50e7ca7493e47f.png"
     }
 ]
