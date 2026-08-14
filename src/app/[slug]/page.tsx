@@ -4,8 +4,10 @@ import {
   categories,
   frontendProjects, landingPageProjects, libraries, movies, products,
   fullstackProjects, repositories, apps, cdns, wallpapers,
-  unfinishedProjects, DatabaseProjects, packages, songs,
+  unfinishedProjects, DatabaseProjects, packages,
 } from '@/lib/data';
+import type { Song } from '@/lib/data';
+import { getSongs, PLAYLIST_ID } from '@/lib/songs';
 import CategoryPage from '@/components/CategoryPage';
 import MoviesPageComponent from '@/components/MoviesPage';
 import ProductsPageComponent from '@/components/ProductsPage';
@@ -33,17 +35,12 @@ const dataMap: Record<string, { data: any[]; transform?: (item: any) => any }> =
     data: packages,
     transform: (p: any) => ({ id: p.name, title: p.name, name: p.name, src: p.src, demo: p.demo, type: p.type }),
   },
-  songs: {
-    data: songs,
-    transform: (s: any) => ({ id: s.id, name: s.Name, title: s.Name, src: s.src, demo: s.data }),
-  },
 };
 
 const customPages: Record<string, React.ComponentType> = {
   movies: MoviesPageComponent,
   products: ProductsPageComponent,
   wallpapers: WallpapersPageComponent,
-  songs: SongsPageComponent,
 };
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -56,7 +53,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-function CategoryContent({ slug }: { slug: string }) {
+function CategoryContent({
+  slug,
+  songs,
+  playlistId,
+}: {
+  slug: string;
+  songs?: Song[];
+  playlistId?: string;
+}) {
+  // Songs is a custom page backed by live data from the YouTube playlist
+  if (slug === 'songs' && songs && playlistId) {
+    return <SongsPageComponent songs={songs} playlistId={playlistId} />;
+  }
+
   // Render custom pages (movies, products, wallpapers)
   const CustomPage = customPages[slug];
   if (CustomPage) return <CustomPage />;
@@ -87,9 +97,14 @@ function CategoryContent({ slug }: { slug: string }) {
 
 export default async function CategoryPageRoute({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  // Songs are fetched live from the YouTube playlist
+  const songs = slug === 'songs' ? await getSongs() : undefined;
   return (
     <AuthGuard>
-      <CategoryContent slug={slug} />
+      <CategoryContent slug={slug} songs={songs} playlistId={PLAYLIST_ID} />
     </AuthGuard>
   );
 }
+
+// Re-render periodically so the playlist data stays fresh
+export const revalidate = 3600;

@@ -9,7 +9,6 @@ import repositoriesData from '@/docs/Projects/Repositories.json';
 import appData from '@/docs/Projects/App.json';
 import cdnsData from '@/docs/Projects/Cdns.json';
 import wallpapersData from '@/docs/media/wallpaper.json';
-import songsData from '@/docs/media/songs.json';
 import unfinishedData from '@/docs/Projects/Unfinished.json';
 import DatabaseData from '@/docs/Projects/Database.json';
 import packagesData from '@/docs/Projects/Packages.json';
@@ -93,6 +92,9 @@ export interface Song {
   Name: string;
   src: string;
   data: string;
+  videoId?: string;
+  artist?: string;
+  thumb?: string;
 }
 
 export interface Wallpaper {
@@ -158,7 +160,6 @@ export const libraries = librariesData as Project[];
 export const movies = moviesData as Movie[];
 export const products = productsData as Product[];
 export const wallpapers = wallpapersData as Wallpaper[];
-export const songs = songsData as Song[];
 export const fullstackProjects = fullstackData as Project[];
 export const repositories = repositoriesData as Project[];
 export const apps = appData as Project[];
@@ -325,7 +326,9 @@ export const categories: CategoryInfo[] = [
     slug: 'songs',
     description: 'Music and audio collection',
     icon: 'Music',
-    count: songs.length,
+    // Songs are served live from the YouTube playlist (see src/lib/songs.ts);
+    // this count mirrors the current playlist size for the landing page cards.
+    count: 13,
     color: '#f43f5e'
   }
 ];
