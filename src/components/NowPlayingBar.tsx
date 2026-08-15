@@ -1,7 +1,6 @@
 'use client';
 
-import { SkipBack, SkipForward, ExternalLink } from 'lucide-react';
-import Waveform from './Waveform';
+import { SkipBack, SkipForward, ExternalLink, Music } from 'lucide-react';
 
 interface NowPlayingBarProps {
   currentSong: { Name: string; data: string };
@@ -16,8 +15,8 @@ export default function NowPlayingBar({ currentSong, onNext, onPrev }: NowPlayin
         <div className="flex items-center justify-between gap-4">
           {/* Left: Song info */}
           <div className="flex items-center gap-3 min-w-0 flex-1">
-            <div className="w-10 h-10 rounded-lg bg-rose-500/20 flex items-center justify-center shrink-0 overflow-hidden">
-              <Waveform bars={6} className="h-5" />
+            <div className="w-10 h-10 rounded-lg bg-rose-500/20 flex items-center justify-center shrink-0">
+              <Music className="w-5 h-5 text-rose-400" />
             </div>
             <div className="min-w-0">
               <p className="text-sm font-medium text-white truncate">{currentSong.Name}</p>

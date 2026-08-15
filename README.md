@@ -96,7 +96,6 @@ src/
 │   │   ├── auth/route.ts               # Auth documentation endpoint
 │   │   ├── categories/route.ts         # Index of all categories (authenticated)
 │   │   ├── check-auth/route.ts         # Session validation endpoint
-│   │   ├── debug/route.ts              # Debug endpoint (DEV only)
 │   │   ├── index/page.tsx              # Interactive API Explorer (client component)
 │   │   ├── login/route.ts              # Session-based login (POST)
 │   │   └── logout/route.ts             # Session logout (POST)
@@ -200,7 +199,7 @@ The dashboard UI is protected by a **password-based login** system using session
 
 ### API Authentication (API Key / Bearer Token)
 
-All API endpoints (except `/api/auth` and `/api/categories`) are protected by **API key authentication**.
+All API endpoints (except `/api/auth` and `/api/categories`) are protected by **API key authentication**. The `/api/playlists` endpoint returns all playlist metadata and requires a key.
 
 **Supported methods:**
 
@@ -248,6 +247,7 @@ All endpoints return **JSON** responses.
 | `GET /api/unfinished` | ✅ Yes | Work in progress projects |
 | `GET /api/mongodb` | ✅ Yes | MongoDB database projects |
 | `GET /api/packages` | ✅ Yes | Published npm packages |
+| `GET /api/playlists` | ✅ Yes | All playlist metadata (Songs, Poetry, Standup Comedy) — private |
 | `POST /api/login` | ❌ No | Dashboard password login |
 | `POST /api/logout` | ❌ No | Dashboard logout |
 | `GET /api/check-auth` | ❌ No | Check session validity |
@@ -409,7 +409,6 @@ JSON files → import (src/lib/data.ts) →
 
 | Interface | Fields |
 |---|---|
-| `IndexEntry` | `id`, `name`, `src`, `auth?` |
 | `Project` | `id`, `title`, `src?`, `demo?`, `desc?`, `img?` |
 | `Movie` | `Key`, `Name`, `Poster`, `Title`, `Desc`, `Release`, `Language`, `Subtitles`, `Size`, `Quality`, `Format`, `IMDB`, `Genres`, `Country`, `Movie_story`, `Screenshots1-4`, `downloads[]` |
 | `Product` | `id`, `name`, `company?`, `price`, `colors?`, `description`, `category`, `featured?`, `shipping?`, `stock`, `reviews`, `stars`, `image`, `images[]?` |

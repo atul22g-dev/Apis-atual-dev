@@ -2,12 +2,12 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import {
   categories,
-  frontendProjects, landingPageProjects, libraries, movies, products,
-  fullstackProjects, repositories, apps, cdns, wallpapers,
+  frontendProjects, landingPageProjects, libraries,
+  fullstackProjects, repositories, apps, cdns,
   unfinishedProjects, DatabaseProjects, packages,
 } from '@/lib/data';
 import type { Song } from '@/lib/data';
-import { getSongs, PLAYLIST_ID } from '@/lib/songs';
+import { getSongs, PLAYLISTS, type PlaylistInfo } from '@/lib/songs';
 import CategoryPage from '@/components/CategoryPage';
 import MoviesPageComponent from '@/components/MoviesPage';
 import ProductsPageComponent from '@/components/ProductsPage';
@@ -19,13 +19,10 @@ const dataMap: Record<string, { data: any[]; transform?: (item: any) => any }> =
   frontend: { data: frontendProjects },
   'landing-page': { data: landingPageProjects },
   libraries: { data: libraries },
-  movies: { data: movies },
-  products: { data: products },
   fullstack: { data: fullstackProjects },
   repositories: { data: repositories },
   apps: { data: apps },
   cdns: { data: cdns, transform: (c: any) => ({ ...c, id: c.name }) },
-  wallpapers: { data: wallpapers },
   unfinished: { data: unfinishedProjects },
   database: {
     data: DatabaseProjects,
@@ -56,15 +53,24 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 function CategoryContent({
   slug,
   songs,
-  playlistId,
+  playlist,
 }: {
   slug: string;
   songs?: Song[];
-  playlistId?: string;
+  playlist?: PlaylistInfo;
 }) {
-  // Songs is a custom page backed by live data from the YouTube playlist
-  if (slug === 'songs' && songs && playlistId) {
-    return <SongsPageComponent songs={songs} playlistId={playlistId} />;
+  // Songs-style pages (Songs, Poetry, Standup Comedy) are backed by live data
+  // from their YouTube playlist.
+  if (songs && playlist) {
+    return (
+      <SongsPageComponent
+        songs={songs}
+        playlistId={playlist.playlistId}
+        title={playlist.name}
+        description={playlist.liveText}
+        itemsLabel={playlist.itemsLabel}
+      />
+    );
   }
 
   // Render custom pages (movies, products, wallpapers)
@@ -87,24 +93,24 @@ function CategoryContent({
     <CategoryPage
       title={cat.name}
       description={cat.description}
-      icon={cat.icon}
       color={cat.color}
       items={items}
-      basePath={`/${slug}`}
     />
   );
 }
 
 export default async function CategoryPageRoute({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  // Songs are fetched live from the YouTube playlist
-  const songs = slug === 'songs' ? await getSongs() : undefined;
+  // Songs-style pages fetch their items live from the YouTube playlist.
+  const playlist = PLAYLISTS.find((p) => p.id === slug);
+  const songs = playlist ? await getSongs(playlist.playlistId) : undefined;
   return (
     <AuthGuard>
-      <CategoryContent slug={slug} songs={songs} playlistId={PLAYLIST_ID} />
+      <CategoryContent slug={slug} songs={songs} playlist={playlist} />
     </AuthGuard>
   );
 }
 
-// Re-render periodically so the playlist data stays fresh
-export const revalidate = 3600;
+// Re-render periodically so the playlist data stays fresh. Matches the songs
+// cache TTL in src/lib/songs.ts, so a newly added song appears within ~5 min.
+export const revalidate = 300;

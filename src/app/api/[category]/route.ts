@@ -4,7 +4,6 @@ import {
   fullstackProjects, repositories, apps, cdns, wallpapers,
   unfinishedProjects, DatabaseProjects, packages,
 } from '@/lib/data';
-import { getSongs } from '@/lib/songs';
 import { validateAuth, unauthorizedResponse, isRouteProtected } from '@/lib/auth';
 
 const dataMap: Record<string, any[]> = {
@@ -21,7 +20,6 @@ const dataMap: Record<string, any[]> = {
   unfinished: unfinishedProjects,
   database: DatabaseProjects,
   packages,
-  index: [],
 };
 
 export async function GET(
@@ -39,9 +37,10 @@ export async function GET(
     }
   }
 
-  // Return data
-  // Songs are sourced live from the YouTube playlist rather than a static file.
-  const data = category === 'songs' ? await getSongs() : dataMap[category];
+  // Return data. Playlist-backed categories (Songs, Poetry, Standup Comedy) are
+  // intentionally NOT exported via the API — they are served only on their
+  // pages (see src/app/[slug]/page.tsx).
+  const data = dataMap[category];
   if (!data) {
     return NextResponse.json({ error: 'Category not found' }, { status: 404 });
   }
@@ -49,5 +48,5 @@ export async function GET(
   return NextResponse.json(data);
 }
 
-// Serve songs live from YouTube on every request
+// Auth checks read the request headers on every call, so keep this dynamic.
 export const dynamic = 'force-dynamic';

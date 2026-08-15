@@ -40,10 +40,9 @@ describe('SongCard', () => {
     expect(playIcon).toBeInTheDocument();
   });
 
-  it('renders equalizer animation when is the current track', () => {
+  it('shows the now-playing overlay instead of the play icon when current', () => {
     render(<SongCard {...defaultProps} isCurrent={true} />);
-    const eqBars = document.querySelectorAll('.animate-equalizer-1');
-    expect(eqBars.length).toBeGreaterThan(0);
+    expect(document.querySelector('.lucide-play')).not.toBeInTheDocument();
   });
 
   it('renders the thumbnail image when available', () => {

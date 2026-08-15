@@ -1,4 +1,3 @@
-// import indexData from '@/docs/index.json';
 import frontendData from '@/docs/Projects/Frontend.json';
 import landingPageData from '@/docs/Projects/LandingPage.json';
 import librariesData from '@/docs/Projects/Libraries.json';
@@ -12,19 +11,9 @@ import wallpapersData from '@/docs/media/wallpaper.json';
 import unfinishedData from '@/docs/Projects/Unfinished.json';
 import DatabaseData from '@/docs/Projects/Database.json';
 import packagesData from '@/docs/Projects/Packages.json';
+import playlistsData from '@/docs/media/playlists.json';
 
 // Types
-export interface IndexEntry {
-  id: number;
-  name: string;
-  src: string;
-  auth?: {
-    type: string;
-    required: boolean;
-    ref: string;
-  };
-}
-
 export interface Project {
   id: number;
   title: string;
@@ -141,6 +130,13 @@ export interface AuthConfig {
   }>;
 }
 
+// Playlist-backed media categories look up their display name and description
+// from the data folder (src/docs/media/playlists.json), the single source of
+// truth for YouTube playlist ids.
+const playlistMeta = new Map(
+  (playlistsData as Array<{ id: string; name: string; liveText: string }>).map((p) => [p.id, p])
+);
+
 // Category info for the landing page
 export interface CategoryInfo {
   id: string;
@@ -153,7 +149,6 @@ export interface CategoryInfo {
 }
 
 // Exported data
-// export const indexEntries = indexData as IndexEntry[];
 export const frontendProjects = frontendData as Project[];
 export const landingPageProjects = landingPageData as Project[];
 export const libraries = librariesData as Project[];
@@ -322,13 +317,33 @@ export const categories: CategoryInfo[] = [
   },
   {
     id: 'songs',
-    name: 'Songs',
+    name: playlistMeta.get('songs')?.name ?? 'Songs',
     slug: 'songs',
-    description: 'Music and audio collection',
+    description: playlistMeta.get('songs')?.liveText ?? 'Music and audio collection',
     icon: 'Music',
-    // Songs are served live from the YouTube playlist (see src/lib/songs.ts);
-    // this count mirrors the current playlist size for the landing page cards.
-    count: 13,
+    // Songs-style pages are served live from YouTube playlists (see
+    // src/lib/songs.ts); these counts are fallbacks — the homepage overrides
+    // them with the live playlist sizes so newly added items are reflected
+    // immediately.
+    count: 20,
     color: '#f43f5e'
+  },
+  {
+    id: 'poetry',
+    name: playlistMeta.get('poetry')?.name ?? 'Poetry',
+    slug: 'poetry',
+    description: playlistMeta.get('poetry')?.liveText ?? 'Poetry readings and spoken word',
+    icon: 'Feather',
+    count: 20,
+    color: '#a78bfa'
+  },
+  {
+    id: 'standup-comedy',
+    name: playlistMeta.get('standup-comedy')?.name ?? 'Standup Comedy',
+    slug: 'standup-comedy',
+    description: playlistMeta.get('standup-comedy')?.liveText ?? 'Standup comedy specials and clips',
+    icon: 'Mic',
+    count: 20,
+    color: '#fbbf24'
   }
 ];

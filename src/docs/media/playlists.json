@@ -1,0 +1,61 @@
+[
+  {
+    "id": "songs",
+    "name": "Personal Songs",
+    "label": "Personal Songs",
+    "emoji": "🎵",
+    "playlistId": "PLIV4nZCjWE3E",
+    "bg": "https://64.media.tumblr.com/e25d20ef76ef7755b85d21a73488690d/3d1da7e3654bead4-bd/s540x810/d426aa49e5401682fb636aa1ee493ae14095052e.png",
+    "description": "Your personal collection, beautifully organized.",
+    "liveText": "Creator's personal diary of music",
+    "itemsLabel": "songs",
+    "quotes": [
+      "\"ye playlist meri personal diary hai\"",
+      "\"mood ke hisaab se nahi, playlist ke hisaab se jeeta hoon\"",
+      "\"har gaane ke peeche ek kahani hai\"",
+      "\"shuffle mat karo, order mein suno — trust me\"",
+      "\"ye woh gaane hain jo kisi ko nahi batata\"",
+      "\"3am vibes, headphones on, duniya off\"",
+      "\"curator's choice — no skip allowed\"",
+      "\"if you know, you know\""
+    ]
+  },
+  {
+    "id": "poetry",
+    "name": "Poetry",
+    "label": "Poetry",
+    "emoji": "📜",
+    "playlistId": "PLeFc6UkjQRlY",
+    "description": "A collection of spoken word and poetry readings.",
+    "bg": "https://64.media.tumblr.com/e95d599562f757eee2fae57bc66cc47c/071def5df5377a5f-c7/s540x810/aeca7258c82738f1cdfb9acff8b9148613124ed5.png",
+    "liveText": "Poetry readings and spoken word",
+    "itemsLabel": "poems",
+    "quotes": [
+      "\"poetry is when an emotion has found its thought\"",
+      "\"words that stay with you long after the video ends\"",
+      "\"read it aloud — poetry is meant to be heard\"",
+      "\"the pause between lines is part of the poem\"",
+      "\"some poems are songs without music\"",
+      "\"shayari, sher, aur saans\""
+    ]
+  },
+  {
+    "id": "standup-comedy",
+    "name": "Standup Comedy",
+    "label": "Standup",
+    "emoji": "🎤",
+    "playlistId": "PLQLTBommJB4k",
+    "bg": "https://64.media.tumblr.com/0a9967654319f8c833d5058aa69a61fd/e3efce7b8f677ba5-53/s540x810/4c7402fa37a43fc20f9ebda38edea4f79e108612.png",
+    "description": "A collection of standup comedy specials and clips.",
+    "liveText": "Standup comedy specials and clips",
+    "itemsLabel": "videos",
+    "quotes": [
+      "\"laughter is the best medicine — take it daily\"",
+      "\"comedy is truth with a punchline\"",
+      "\"no script, no notes, just vibes\"",
+      "\"if you can laugh at yourself, you'll never run out of material\"",
+      "\"laugh till your cheeks hurt\"",
+      "\"don't try this at the family dinner table\""
+    ]
+  }
+]
