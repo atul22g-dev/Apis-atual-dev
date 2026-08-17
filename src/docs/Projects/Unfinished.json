@@ -107,18 +107,26 @@
         "name": "Rest-api2",
         "src": "https://github.com/atul22g-dev/Rest-api2"
     },
-        {
+    {
         "id": 19,
         "title": "YouTube-clone",
         "demo": "https://atul22g-youtube.netlify.app",
         "src": "https://github.com/atul22g-dev/YouTube-clone",
         "img": "https://64.media.tumblr.com/5653e682fdf72fff69461d2a1620264a/ae9271628fc3f833-d2/s640x960/eccb67bbc3122eabaea54adaff34d93e2719679d.webp"
     },
-        {
+    {
         "id": 20,
         "title": "iMoviearea",
         "src": "https://github.com/atul22g-dev/iMoviearea",
         "demo": "https://atul22g-imoviearea.netlify.app/",
         "img": "https://64.media.tumblr.com/24e8dd39e3531ec32a698a388e7e525e/5403e37e980fa273-f6/s640x960/62e8a4b0f590e3a685efe70b82ed56c677f0aa0c.webp"
+    },
+    {
+        "id": 21,
+        "title": "pulseApp",
+        "type": "App",
+        "src": "https://github.com/atul22g-dev/pulseApp",
+        "demo": "https://github.com/atul22g-dev/pulseApp/releases",
+        "img": "https://64.media.tumblr.com/8f946615c3490d2bcb66505540f0f559/8ecc4d08d28e4c14-42/s640x960/2c374a6990acacd6f535b8ad5b1ee51bc2ef9d8e.webp"
     }
 ]
